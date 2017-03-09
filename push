@@ -1,0 +1,29 @@
+#!/bin/bash
+
+DESTDIR=/home/git-work/instance
+
+case "$1" in
+  push)
+    git fetch
+    git checkout origin/master -- push.sh
+    ./push.sh build-deploy
+    ;;
+  build-deploy)
+    git pull
+    tmp_file=$(mktemp /tmp/git-work-sbt-log.XXXX)
+    echo "sbt log file: ${tmp_file}"
+    sbt -no-colors 'show universal:packageZipTarball' | tee ${tmp_file}
+    tgz_file=$(grep 'tgz$' ${tmp_file} | cut -f 2 -d ' ')
+    if [ -z "${tgz_file}" ]; then
+      echo "Could not find a produced build .tgz"
+      exit 1
+    else
+      echo "Found tgz file: ${tgz_file}"
+      tar -zxvf $tgz_file -C $DESTDIR --strip-components 1
+    fi
+    sudo -tt systemctl restart git-work
+    ;;
+  *)
+    echo $"Usage: $0 {push|build-deploy}"
+    exit 1
+esac
