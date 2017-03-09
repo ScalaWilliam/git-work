@@ -1,27 +1,41 @@
 #!/bin/bash
+#
+# Deployment on a bare server.
+# We execute the newest version of the push file first
+# Which will update the repository, build the tarball,
+# extract it and then restart the system service.
+#
+# I like having more customization and to benefit from
+# the local filesystem as well as instance content deploys
+# which is why this is done manually, without cloud hosting.
+#
 
 DESTDIR=/home/git-work/instance
 
 case "$1" in
   push)
     git fetch
+    ## Check out
     git checkout origin/master -- push
     ./push build-deploy
     ;;
   build-deploy)
     git pull
+
+    # Perform the build and extract the tgz file
     tmp_file=$(mktemp /tmp/git-work-sbt-log.XXXX)
     echo "sbt log file: ${tmp_file}"
     sbt -no-colors 'show universal:packageZipTarball' | tee ${tmp_file}
     tgz_file=$(grep 'tgz$' ${tmp_file} | cut -f 2 -d ' ')
+
     if [ -z "${tgz_file}" ]; then
       echo "Could not find a produced build .tgz"
       exit 1
     else
       echo "Found tgz file: ${tgz_file}"
       tar -zxvf $tgz_file -C $DESTDIR --strip-components 1
+      sudo -tt systemctl restart git-work
     fi
-    sudo -tt systemctl restart git-work
     ;;
   *)
     echo $"Usage: $0 {push|build-deploy}"
