@@ -1,5 +1,6 @@
 # git-work
 > The marketplace for [GitHub Issues](https://help.github.com/articles/github-glossary/#issue)
+
 ## Deployment
 We use [git.watch](https://git.watch) to deploy automatically to a bare metal server.
 On push to GitHub we trigger the [push script](push). Bare gives us instant deployment and a filesystem.
