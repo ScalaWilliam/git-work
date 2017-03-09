@@ -12,6 +12,30 @@
 
 DESTDIR=/home/git-work/instance
 
+deploy_content() {
+    git pull
+    rsync --delete -av ./dist/www/. $DESTDIR/www/.
+}
+
+deploy_app() {
+  git pull
+
+  # Perform the build and extract the tgz file
+  tmp_file=$(mktemp /tmp/git-work-sbt-log.XXXX)
+  echo "sbt log file: ${tmp_file}"
+  sbt -no-colors 'show universal:packageZipTarball' | tee ${tmp_file}
+  tgz_file=$(grep 'tgz$' ${tmp_file} | cut -f 2 -d ' ')
+
+  if [ -z "${tgz_file}" ]; then
+    echo "Could not find a produced build .tgz"
+    exit 1
+  else
+    echo "Found tgz file: ${tgz_file}"
+    tar -zxvf $tgz_file -C $DESTDIR --strip-components 1
+    sudo -tt systemctl restart git-work
+  fi
+}
+
 case "$1" in
   push)
     git fetch
@@ -20,21 +44,10 @@ case "$1" in
     ./push build-deploy
     ;;
   build-deploy)
-    git pull
-
-    # Perform the build and extract the tgz file
-    tmp_file=$(mktemp /tmp/git-work-sbt-log.XXXX)
-    echo "sbt log file: ${tmp_file}"
-    sbt -no-colors 'show universal:packageZipTarball' | tee ${tmp_file}
-    tgz_file=$(grep 'tgz$' ${tmp_file} | cut -f 2 -d ' ')
-
-    if [ -z "${tgz_file}" ]; then
-      echo "Could not find a produced build .tgz"
-      exit 1
+    if [[ $(git diff --name-only master origin/master | grep -v 'dist/www' | grep -v 'dist/content' ) == "" ]]; then
+      deploy_content
     else
-      echo "Found tgz file: ${tgz_file}"
-      tar -zxvf $tgz_file -C $DESTDIR --strip-components 1
-      sudo -tt systemctl restart git-work
+      deploy_app
     fi
     ;;
   *)
