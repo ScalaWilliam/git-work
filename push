@@ -5,8 +5,8 @@ DESTDIR=/home/git-work/instance
 case "$1" in
   push)
     git fetch
-    git checkout origin/master -- push.sh
-    ./push.sh build-deploy
+    git checkout origin/master -- push
+    push build-deploy
     ;;
   build-deploy)
     git pull
