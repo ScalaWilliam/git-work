@@ -6,7 +6,7 @@ case "$1" in
   push)
     git fetch
     git checkout origin/master -- push
-    push build-deploy
+    ./push build-deploy
     ;;
   build-deploy)
     git pull
