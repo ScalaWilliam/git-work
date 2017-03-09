@@ -1,13 +1,13 @@
 #!/bin/bash
 #
 # Deployment on a bare server.
-# We execute the newest version of the push file first
-# Which will update the repository, build the tarball,
-# extract it and then restart the system service.
+# We execute the newest version of the push file first in order
+# to run any newly defined actions that are not in the HEAD's push.
 #
-# I like having more customization and to benefit from
-# the local filesystem as well as instance content deploys
-# which is why this is done manually, without cloud hosting.
+# Then it will run build-deploy.
+#
+# Using non-cloud gives us: filesystem access and fairly easy instant
+# content deploys. When we reach large scale maybe we'll look at upgrading.
 #
 
 DESTDIR=/home/git-work/instance
@@ -44,7 +44,7 @@ case "$1" in
     ./push build-deploy
     ;;
   build-deploy)
-    if [[ $(git diff --name-only master origin/master | grep -v 'dist/www' | grep -v 'dist/content' ) == "" ]]; then
+    if [[ $(git diff --name-only master origin/master | grep -v 'dist/www' | grep -v 'dist/content' | grep -v README ) == "" ]]; then
       deploy_content
     else
       deploy_app
