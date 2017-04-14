@@ -18,7 +18,7 @@ and the **Client** risks wasting his own time and not getting what he wants.
 We are not interested in taking on Escrow services. There are other vendors like Upwork for that, but you'll spend 
 far more time wrestling with people rather than simply getting on with the work.
  
-See [some slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p).
+See the [Git Work slides (Google Slides)](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p).
 
 We'll put in extra effort to make sure a good full system workflow is set up as Git Work is only a **piece of the puzzle**
 and not a full fledged system for managing work. For example, it can be used with Gitchiu which lets you
