@@ -24,7 +24,7 @@ All stored references shall be absolute and permanent identifiers as we must be 
 1. Open work: `@git-work $10.00 for this`
 2. Give work: `@git-work give to @Worker`
 3. Take work: `@git-work take`
-4. Decline work: `@git-work don't want`
+4. Decline work: `@git-work decline`
 5. Pay for work: `@git-work pay @Worker`
 
 # User Validation
@@ -91,3 +91,7 @@ We use [git.watch](https://git.watch) to deploy automatically to a bare metal se
 On push to GitHub we trigger the [push script](push). Bare gives us instant deployment and a filesystem.
 If the project reaches large enough scale we can consider moving to the cloud but for now
 this is good enough.
+
+# Unique Selling Point
+
+See the <a href="https://github.com/ScalaWilliam/git-work/wiki/USP">USP Wiki page</a>.
