@@ -1,6 +1,46 @@
 # git-work
 > The marketplace for [GitHub Issues](https://help.github.com/articles/github-glossary/#issue)
 
+# Explanation
+GitHub Issues are like e-mail threads, and comments are like individual e-mails. But they are focused around code,
+and live together with the code repository and version control. With version control changes from multiple people
+can be controlled and integrated. A typical e-mail thread would be around one subject and that is the same with an
+Issue.
+
+Git Work targets a technical manager or architect who builds software incrementally,
+where the individual pieces of work would last less than half a working day. Where the piece is too large,
+ it must be broken down.
+ 
+There are no obligations from either side, so no contracts aside those of rights and licensing.
+By taking on larger or unclear pieces of work, the **Worker** risks not being paid by the **Client** for the work done,
+and the **Client** risks wasting his own time and not getting what he wants.
+
+We are not interested in taking on Escrow services. There are other vendors like Upwork for that, but you'll spend 
+far more time wrestling with people rather than simply getting on with the work.
+ 
+See [some slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p).
+
+We'll put in extra effort to make sure a good full system workflow is set up as Git Work is only a **piece of the puzzle**
+and not a full fledged system for managing work. For example, it can be used with Gitchiu which lets you
+create new Issues from commits very quickly. This lets developers work incrementally in a bug-driven development fashion
+and communicates important information to the manager behind the delivery.
+
+Feedback is very important, and **Workers** should always communicate to their best ability as should the **Clients**.
+Communication outside of Issues is strongly discouraged because it leads to poorer quality of work.
+ We will have metrics that help determine good working practices. Well documented Issues should be easy to get **Workers**
+ for, whereas badly documented ones will have difficulty.
+
+Initially the system will not be immediately open to new **Clients** to ensure the right workflow is built up.
+ I'm open to very good incremental technical managers/architects who could become beta-testers and potentially
+  full fledged partners in this system. Once the essential bits are complete, Git Work should be finished
+  and only small improvements necessary. It should be possible to build new systems on top of Git Work but I 
+  cannot see a clear path for it yet. Definitely I see potential for customising user validation 
+  and payment methods for example, as currently only PayPal would be supported for simplicity.
+
+The system is open to **Workers**.
+
+See the <a href="https://github.com/ScalaWilliam/git-work/wiki/USP">USP Wiki page</a> to have a look at the competition and some philosophy.
+
 # User Interface
 
 Git Work is used via the [GitHub Issues](https://help.github.com/articles/github-glossary/#issue) **comments**.
@@ -69,6 +109,8 @@ A **Given Work Item** can be turned into **Taken Work Item** only by the **Worke
 
 **Worker User** can request this work directly in the Issue rather than through **Git Work**.
 We shall not include the automated taking functionality to ensure that the **Owner** is in the control.
+We also want to avoid having to take work away from a user when we know in advance they
+are potentially a nuisance for instance or the **Client** already had a bad experience with them previously.
 
 ## Decline Work
 
@@ -103,32 +145,15 @@ It's advised to discuss with the **Worker** about this but the **Owner** still n
 **Open Work Item**, **Given Work Item**, **Taken Work Item** can be made into **Cancelled Work** by the **Work Item Owner**.
 
 # Deployment
+
 We use [git.watch](https://git.watch) to deploy automatically to a bare metal server.
 On push to GitHub we trigger the [push script](push). Bare gives us instant deployment and a filesystem.
 If the project reaches large enough scale we can consider moving to the cloud but for now
 this is good enough.
 
-# Unique Selling Point
+# Technical choices
 
-This is suitable for a technical manager or architect who practises incremental delivery,
-where the pieces of work last less than half a working day. If the piece is too large, 
- it needs to be broken down.
- 
-By taking on larger or unclear pieces of work, the **Worker** risks not being paid by the **Client** for the work done.
+I chose this stack because of my experience and familiarity with it.
 
-We are not interested in taking on Escrow services. There are other vendors like Upwork for that, but you'll spend 
-far more time wrestling with people rather than simply getting on with the work.
-
-We'll put in extra effort to make sure a good full system workflow is set up as Git Work is only a **piece of the puzzle**
-and not a full fledged system for managing work.
-
-The system is not immediately open to new **Clients** to ensure the right workflow is built up. 
-But it is however open to many **Workers**.
-
-Feedback is very important, and **Workers** should always communicate to their best ability as should the **Clients**.
-Communication outside of Issues is strongly discouraged because it leads to poorer quality of work.
- We will have metrics that help determine good working practices. Well documented Issues should be easy to get **Workers**
- for, whereas badly documented ones will have difficulty.
-
-See the <a href="https://github.com/ScalaWilliam/git-work/wiki/USP">USP Wiki page</a> to have a look at competition and some philosophy.
-
+- [Scala](http://www.scala-lang.org/news/) and [Play framework](https://www.playframework.com/documentation/2.6.x/Migration26) because I'm experienced in it. See [ActionFPS](https://github.com/ScalaWilliam/ActionFPS) and [Git Watch](http://git.watch/) which also use Event Source.
+- Build tool: [SBT](https://www.scalawilliam.com/essential-sbt/) default for Play and supports Docker.
