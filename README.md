@@ -7,7 +7,7 @@ Git Work is used via the [GitHub Issues](https://help.github.com/articles/github
 
 The **User** is the person making the **Comment**.
 
-A **Command** is a **Comment** that includes the **Listener User**'s ID, such as `@git-work do this`.
+A **Command** is a **Comment** that includes the **Listener User Login**, such as `@git-work do this`.
 
 A **Listener User** is a GitHub user account that periodically checks for new **Commands** using
 the [GitHub Notifications API](https://developer.github.com/v3/activity/notifications/).
@@ -21,11 +21,12 @@ All stored references shall be absolute and permanent identifiers as we must be 
 
 # Issue-Level Comment Command examples
 
-1. Open work: `@git-work $10.00 for this` or `@git-work $10.00 for this. 24h $10.00 bonus.`
+1. Open work: `@git-work $10.00 for this` or `@git-work $10.00 for this. 24h $10.00 bonus`
 2. Give work: `@git-work give to @Worker`
 3. Take work: `@git-work take`
 4. Decline work: `@git-work decline`
 5. Pay for work: `@git-work pay @Worker` or `@git-work pay with bonus @Worker`
+6. Take away work: `@git-work take away`.
 
 # User Validation
 
@@ -49,7 +50,7 @@ the **Work Item Owner** ("**Client**") being the **User** of this **Command**.
 
 This **Open Work Item** will be visible in the index of **Open Work Items** and *may* be shown in the homepage.
 
-**Time Bonus** is optional, and is set in the **Pay for work** phase. 
+**Time Bonus** is optional, and is executed in the **Pay for work** phase. 
 
 ## Give work
 
@@ -86,6 +87,16 @@ This will initiate steps required to immediately pay the **Worker User** the **P
 The sum of money the **Worker User** receives *may* be less than the **Price** due to money transfer fees.
 
 When the transaction is complete, it becomes **Paid Work Item**.
+
+If bonus is included then the bonus specified in **Open Work Item** is specified.
+
+## Take away work
+
+Turn a **Taken Work Item** an **Open Work Item**.
+
+If the user is taking longer than `X` days (let's say, 7) or longer than `bonus` time, the **Owner** can take away work.
+
+It's advised to discuss with the **Worker** about this but the **Owner** still needs to be in full control of the project.
 
 ## Cancel work
 
