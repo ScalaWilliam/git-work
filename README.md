@@ -21,11 +21,11 @@ All stored references shall be absolute and permanent identifiers as we must be 
 
 # Issue-Level Comment Command examples
 
-1. Open work: `@git-work $10.00 for this`
+1. Open work: `@git-work $10.00 for this` or `@git-work $10.00 for this. 24h $10.00 bonus.`
 2. Give work: `@git-work give to @Worker`
 3. Take work: `@git-work take`
 4. Decline work: `@git-work decline`
-5. Pay for work: `@git-work pay @Worker`
+5. Pay for work: `@git-work pay @Worker` or `@git-work pay with bonus @Worker`
 
 # User Validation
 
@@ -45,9 +45,11 @@ and returns the **User** to the page once that **Command** has been executed.
 ## Open work
 
 Includes the **Issue** in the system as an **Open Work Item** with a **Price** and a reference to the **Issue** and
-the **Work Item Owner** being the **User** of this **Command**.
+the **Work Item Owner** ("**Client**") being the **User** of this **Command**.
 
 This **Open Work Item** will be visible in the index of **Open Work Items** and *may* be shown in the homepage.
+
+**Time Bonus** is optional, and is set in the **Pay for work** phase. 
 
 ## Give work
 
@@ -63,6 +65,9 @@ A **Worker User** who is not a **Validated User** will be asked to go through **
 ## Take Work 
 
 A **Given Work Item** can be turned into **Taken Work Item** only by the **Worker User**.
+
+**Worker User** can request this work directly in the Issue rather than through **Git Work**.
+We shall not include the automated taking functionality to ensure that the **Owner** is in the control.
 
 ## Decline Work
 
@@ -94,4 +99,25 @@ this is good enough.
 
 # Unique Selling Point
 
-See the <a href="https://github.com/ScalaWilliam/git-work/wiki/USP">USP Wiki page</a>.
+This is suitable for a technical manager or architect who practises incremental delivery,
+where the pieces of work last less than half a working day. If the piece is too large, 
+ it needs to be broken down.
+ 
+By taking on larger or unclear pieces of work, the **Worker** risks not being paid by the **Client** for the work done.
+
+We are not interested in taking on Escrow services. There are other vendors like Upwork for that, but you'll spend 
+far more time wrestling with people rather than simply getting on with the work.
+
+We'll put in extra effort to make sure a good full system workflow is set up as Git Work is only a **piece of the puzzle**
+and not a full fledged system for managing work.
+
+The system is not immediately open to new **Clients** to ensure the right workflow is built up. 
+But it is however open to many **Workers**.
+
+Feedback is very important, and **Workers** should always communicate to their best ability as should the **Clients**.
+Communication outside of Issues is strongly discouraged because it leads to poorer quality of work.
+ We will have metrics that help determine good working practices. Well documented Issues should be easy to get **Workers**
+ for, whereas badly documented ones will have difficulty.
+
+See the <a href="https://github.com/ScalaWilliam/git-work/wiki/USP">USP Wiki page</a> to have a look at competition and some philosophy.
+
