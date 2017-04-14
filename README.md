@@ -31,17 +31,17 @@ Communication outside of Issues is strongly discouraged because it leads to poor
  for, whereas badly documented ones will have difficulty.
 
 Initially the system will not be immediately open to new **Clients** to ensure the right workflow is built up.
- I'm open to very good incremental technical managers/architects who could become beta-testers and potentially
+ We're open to very good incremental technical managers/architects who could become beta-testers and potentially
   full fledged partners in this system. Once the essential bits are complete, Git Work should be finished
-  and only small improvements necessary. It should be possible to build new systems on top of Git Work but I 
-  cannot see a clear path for it yet. Definitely I see potential for customising user validation 
+  and only small improvements necessary. It should be possible to build new systems on top of Git Work but we 
+  cannot see a clear path for it yet. Definitely we see potential for customising user validation 
   and payment methods for example, as currently only PayPal would be supported for simplicity.
 
 The system is open to **Workers**.
 
 See the <a href="https://github.com/ScalaWilliam/git-work/wiki/USP">USP Wiki page</a> to have a look at the competition and some philosophy.
 
-# User Interface
+# User Command Interface
 
 Git Work is used via the [GitHub Issues](https://help.github.com/articles/github-glossary/#issue) **comments**.
 
@@ -143,6 +143,52 @@ It's advised to discuss with the **Worker** about this but the **Owner** still n
 ## Cancel work
 
 **Open Work Item**, **Given Work Item**, **Taken Work Item** can be made into **Cancelled Work** by the **Work Item Owner**.
+
+# Other interfaces
+
+## Web interface
+
+The homepage contains a list of **Open Work**. This list *should* be filterable and readable without
+authentication to attract as many people as possible.
+
+There is an Archive page of work in other stages.
+
+Each **Work Item** has a page of its own that links to the **Issue** directly and all the relevant details.
+It contains the log of commands and what has been happening.
+
+For filtering, categories and tagging we can use information from the Issue as well as information from the Project itself.
+
+## Event-based interface
+
+We could potentially post new **Open Work** items to multiple targets, such as:
+* Twitter, tagged with specific languages
+* Slack, to specific language channels for instance
+* LinkedIn, or some other data science ways of finding workers and targeting them
+* Instagram/Pinterest potentially to hunt for web designers
+* Google Advertising
+ 
+These are beyond the scope of this project and more in the scope of targeted information distribution
+so that we can get more workers in. When we do this of course we can use customised landing pages
+to get an idea of what works and what doesn't, and where the best or worst people come from.
+
+# Development
+
+## Running locally
+
+1. <a href="https://www.scalawilliam.com/essential-sbt/">Install SBT</a>
+2. Inside the Git clone of this project, run: `sbt run`
+3. Go to http://localhost:9000
+
+## Editing the project
+
+1. <a href="https://www.jetbrains.com/idea/">Install IntelliJ IDEA</a> Community Edition or Ultimate Edition.
+2. Make sure to install the Scala plugin during set up.
+3. Install the <a href="http://scalafmt.org/">scalafmt</a> plugin.
+4. <a href="https://www.jetbrains.com/help/idea/2017.1/getting-started-with-sbt.html#import_project">Import the SBT project</a>.
+
+## Editing the content
+
+It's all in `dist/www`. You can probably use something like <a href="http://brackets.io/">Brackets</a> for that.
 
 # Deployment
 
