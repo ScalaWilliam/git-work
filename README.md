@@ -1,4 +1,4 @@
-# git-work
+# [Git Work](https://git.work/)
 > The marketplace for [GitHub Issues](https://help.github.com/articles/github-glossary/#issue)
 
 See: [Git Work on Google Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p).
