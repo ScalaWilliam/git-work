@@ -76,6 +76,8 @@ Commands are not executed until the **User** is **Validated**.
 When the **User** is not **Validated** the bot will respond with a
 link to `https://git.work/validate/` to achieve **User Validation** using the **Validation Flow**.
 
+Example message: `@ScalaWilliam please [validate yourself](https://git.work/validate/) first.`.
+
 **User Validation** requests authorization with the **User**'s GitHub
 account and a **Validated** PayPal account for security reasons. It may also request Acceptance
 of Contribution Licence Agreement or the like. Detail is TBD.
@@ -92,7 +94,9 @@ the **Work Item Owner** ("**Client**") being the **User** of this **Command**.
 
 This **Open Work Item** will be visible in the index of **Open Work Items** and *may* be shown in the homepage.
 
-**Time Bonus** is optional, and is executed in the **Pay for work** phase. 
+**Time Bonus** is optional, and is executed in the **Pay for work** phase.
+ 
+Example response: `@ScalaWilliam work is [now open](https://git.work/work/?id=abcd).`.
 
 ## Give work
 
@@ -103,7 +107,11 @@ For a **Given Work Item**, another **Take Request** will cancel an existing one.
 
 Otherwise the command is ignored.
 
+Example response: `@ScalaWilliam work is offered to @Worker`.
+
 A **Worker User** who is not a **Validated User** will be asked to go through **User Validation** as well.
+
+Example message: `@Worker, please [validate yourself](https://git.work/validate) to take work from @ScalaWilliam`.
 
 ## Take Work 
 
@@ -114,6 +122,8 @@ We shall not include the automated taking functionality to ensure that the **Own
 We also want to avoid having to take work away from a user when we know in advance they
 are potentially a nuisance for instance or the **Client** already had a bad experience with them previously.
 
+Example response: `@ScalaWilliam, @Worker took this work`.
+
 ## Decline Work
 
 A **Given Work Item** can be turned into an **Open Work Item** by the **Worker User**.
@@ -121,16 +131,22 @@ A **Given Work Item** can be turned into an **Open Work Item** by the **Worker U
 A **Taken Work Item** can be turned into an **Open Work Item** by the **Worker User** if he realises he cannot
 complete the task.
 
+Example response: `@ScalaWilliam, @Worker declined this work`.
+
 ## Pay for work
 
 Only works for **Taken Work Item**. The **Target User** *must* match the **Worker User**.
 
 When this is initiated, it becomes a **Paying Work Item**.
 
+Example response: `@ScalaWilliam, pay @Worker [here](https://git.work/work/pay/?id=abcd)`.
+
 This will initiate steps required to immediately pay the **Worker User** the **Price** of work.
 The sum of money the **Worker User** receives *may* be less than the **Price** due to money transfer fees.
 
 When the transaction is complete, it becomes **Paid Work Item**.
+
+Example response: `@Worker, @ScalaWilliam paid $20.00 for your work`.
 
 If bonus is included then the bonus specified in **Open Work Item** is specified.
 
@@ -142,9 +158,13 @@ If the user is taking longer than `X` days (let's say, 7) or longer than `bonus`
 
 It's advised to discuss with the **Worker** about this but the **Owner** still needs to be in full control of the project.
 
+Example response: `@Worker, @ScalaWilliam took away the work`.
+
 ## Cancel work
 
-**Open Work Item**, **Given Work Item**, **Taken Work Item** can be made into **Cancelled Work** by the **Work Item Owner**.
+An **Open Work Item** can be made into **Cancelled Work** by the **Work Item Owner**.
+
+Example response: `@ScalaWilliam, work was cancelled`.
 
 # Other interfaces
 
