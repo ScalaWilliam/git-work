@@ -179,12 +179,33 @@ Example response: `@ScalaWilliam, work was cancelled`.
 The homepage contains a list of **Open Work**. This list *should* be filterable and readable without
 authentication to attract as many people as possible.
 
+Each item in this list will display:
+* Repository name or **Work Owner**.
+* Issue Title
+* Issue Price
+* How long ago it was Issued
+* Tags (eg language)
+Clicking on the item will lead to a the item's page.
+
+The filter shall allow you to *deselect* stuff rather than select stuff, so you eliminate stuff you are not interested in.
+This filter shall be persisted between user sessions.
+
+For filtering, categories and tagging we *may* use information from the Issue as well as information from the Project itself.
+
 There is an Archive page of work in other stages.
 
-Each **Work Item** has a page of its own that links to the **Issue** directly and all the relevant details.
-It contains the log of commands and what has been happening.
+The web interface shall be mobile compatible (not necessarily fully responsive) so that it is usable via a mobile phone like GitHub is.
 
-For filtering, categories and tagging we can use information from the Issue as well as information from the Project itself.
+It shall use [progressive enhancement](https://www.shopify.com/partners/blog/what-is-progressive-enhancement-and-why-should-you-care).
+
+It will include static social media tags for discoverability.
+
+### Work Item page
+Each **Work Item** has a page of its own that links to the **Issue** directly and all the relevant details.
+
+The details will include at minimum what is displayed on the **Open Work** page, but also the item state, and the log of what has been happening as a timeline.
+
+Individualised social media tags will be included for discoverability.
 
 ## Event-based interface
 
