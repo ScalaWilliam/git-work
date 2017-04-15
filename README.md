@@ -231,3 +231,6 @@ I chose this stack because of my experience and familiarity with it.
 
 - [Scala](http://www.scala-lang.org/news/) and [Play framework](https://www.playframework.com/documentation/2.6.x/Migration26) because I'm experienced in it. See [ActionFPS](https://github.com/ScalaWilliam/ActionFPS) and [Git Watch](http://git.watch/) which also use Event Source.
 - Build tool: [SBT](https://www.scalawilliam.com/essential-sbt/) default for Play and supports Docker.
+
+# Licence
+Open source & non-free.
