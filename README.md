@@ -1,6 +1,8 @@
 # git-work
 > The marketplace for [GitHub Issues](https://help.github.com/articles/github-glossary/#issue)
 
+See: [Git Work on Google Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p).
+
 # Explanation
 GitHub Issues are like e-mail threads, and comments are like individual e-mails. But they are focused around code,
 and live together with the code repository and version control. With version control changes from multiple people
@@ -18,7 +20,6 @@ and the **Client** risks wasting his own time and not getting what he wants.
 We are not interested in taking on Escrow services. There are other vendors like Upwork for that, but you'll spend 
 far more time wrestling with people rather than simply getting on with the work.
  
-See the [Git Work slides (Google Slides)](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p).
 
 We'll put in extra effort to make sure a good full system workflow is set up as Git Work is only a **piece of the puzzle**
 and not a full fledged system for managing work. For example, it can be used with Gitchiu which lets you
@@ -76,7 +77,8 @@ When the **User** is not **Validated** the bot will respond with a
 link to `https://git.work/validate/` to achieve **User Validation** using the **Validation Flow**.
 
 **User Validation** requests authorization with the **User**'s GitHub
-account and a **Validated** PayPal account for security reasons.
+account and a **Validated** PayPal account for security reasons. It may also request Acceptance
+of Contribution Licence Agreement or the like. Detail is TBD.
 
 When successful, the **Validation Flow** executes the command that the **User** requested for,
 and returns the **User** to the page once that **Command** has been executed.
@@ -108,7 +110,7 @@ A **Worker User** who is not a **Validated User** will be asked to go through **
 A **Given Work Item** can be turned into **Taken Work Item** only by the **Worker User**.
 
 **Worker User** can request this work directly in the Issue rather than through **Git Work**.
-We shall not include the automated taking functionality to ensure that the **Owner** is in the control.
+We shall not include the automated taking functionality to ensure that the **Owner** is in control.
 We also want to avoid having to take work away from a user when we know in advance they
 are potentially a nuisance for instance or the **Client** already had a bad experience with them previously.
 
@@ -134,7 +136,7 @@ If bonus is included then the bonus specified in **Open Work Item** is specified
 
 ## Take away work
 
-Turn a **Taken Work Item** an **Open Work Item**.
+Turn a **Taken Work Item** into an **Open Work Item**.
 
 If the user is taking longer than `X` days (let's say, 7) or longer than `bonus` time, the **Owner** can take away work.
 
@@ -173,13 +175,15 @@ to get an idea of what works and what doesn't, and where the best or worst peopl
 
 # Development
 
+First, [Clone the repository](https://help.github.com/articles/cloning-a-repository/).
+
 ## Running locally
 
 1. <a href="https://www.scalawilliam.com/essential-sbt/">Install SBT</a>
 2. Inside the Git clone of this project, run: `sbt run`
 3. Go to http://localhost:9000
 
-## Editing the project
+## Developing
 
 1. <a href="https://www.jetbrains.com/idea/">Install IntelliJ IDEA</a> Community Edition or Ultimate Edition.
 2. Make sure to install the Scala plugin during set up.
@@ -194,8 +198,12 @@ It's all in `dist/www`. You can probably use something like <a href="http://brac
 
 We use [git.watch](https://git.watch) to deploy automatically to a bare metal server.
 On push to GitHub we trigger the [push script](push). Bare gives us instant deployment and a filesystem.
-If the project reaches large enough scale we can consider moving to the cloud but for now
-this is good enough.
+
+This project is unlikely to need scaling except for the website which we can always put behind a CloudFront, Fastly 
+or something similar.
+
+In the current deployment, we have an [nginx](https://www.nginx.com/resources/wiki/) instance 
+[reverse-proxying](https://www.nginx.com/resources/glossary/reverse-proxy-server/) to the Play application instance.
 
 # Technical choices
 
