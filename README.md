@@ -103,7 +103,7 @@ and returns the **User** to the page once that **Command** has been executed.
 
 # Commands and Flow
 
-![](git-work.svg)
+![](git-work.png)
 
 _Made with draw.io_ 
 
