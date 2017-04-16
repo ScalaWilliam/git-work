@@ -5,9 +5,19 @@ See: [Git Work on Google Slides](https://docs.google.com/presentation/d/1o5J6twJ
 
 # User Stories
 
-> As a **Client** who has a project running in [Git](https://www.quora.com/How-can-I-explain-what-Git-is-does-to-someone-who-is-not-a-programmer/answer/Jake-Boxer), I want help with my project on a task, without hiring. I want to have a predictable project velocity. I only want to **pay for the good work done**, not time, nor bad work. I want my workers to communicate project problems to me instead of being heroes. I don’t want to be responsible for the personal development of my workers. I am willing to split work appropriately and in incremental fashion.
+> As a **Client** who has a project running in 
+    [Git](https://www.quora.com/How-can-I-explain-what-Git-is-does-to-someone-who-is-not-a-programmer/answer/Jake-Boxer),
+     I want help with my project on a task, without hiring. I want to have a predictable project velocity. I only want 
+     to **pay for the good work done**, not time, nor bad work. I want my workers to communicate project problems to me 
+     instead of being heroes. I don’t want to be responsible for the personal development of my workers. I am willing to
+      split work appropriately and in incremental fashion.
 
-> As a **Worker** who is familiar with [Git](https://www.quora.com/How-can-I-explain-what-Git-is-does-to-someone-who-is-not-a-programmer/answer/Jake-Boxer), I want to get paid for the amount of work I do and **not for the hours I work**. I want to have a clear specification to work against. I do not want to be **controlled** by an employer and go through tiring interview processes. I want to avoid politics, meetings and other things that distract me from my profession. I want to get honest and clear feedback and guide my own career. I am willing to communicate, not be a hero and work incrementally.
+> As a **Worker** who is familiar with
+ [Git](https://www.quora.com/How-can-I-explain-what-Git-is-does-to-someone-who-is-not-a-programmer/answer/Jake-Boxer),
+  I want to get paid for the amount of work I do and **not for the hours I work**. I want to have a clear specification
+   to work against. I do not want to be **controlled** by an employer and go through tiring interview processes. I want
+    to avoid politics, meetings and other things that distract me from my profession. I want to get honest and clear
+     feedback and guide my own career. I am willing to communicate, not be a hero and work incrementally.
 
 # Explanation
 GitHub Issues are like e-mail threads, and comments are like individual e-mails. But they are focused around code,
@@ -69,7 +79,7 @@ All stored references shall be absolute and permanent identifiers as we must be 
 # Issue-Level Comment Command examples
 
 1. Open work: `@git-work $10.00 for this` or `@git-work $10.00 for this. 24h $10.00 bonus`
-2. Give work: `@git-work give to @Worker`
+2. Offer work: `@git-work offer to @Worker`
 3. Take work: `@git-work take`
 4. Decline work: `@git-work decline`
 5. Pay for work: `@git-work pay @Worker` or `@git-work pay with bonus @Worker`
@@ -93,6 +103,10 @@ and returns the **User** to the page once that **Command** has been executed.
 
 # Commands and Flow
 
+![](git-work.svg)
+
+_Made with draw.io_ 
+
 ## Open work
 
 Includes the **Issue** in the system as an **Open Work Item** with a **Price** and a reference to the **Issue** and
@@ -104,12 +118,12 @@ This **Open Work Item** will be visible in the index of **Open Work Items** and 
  
 Example response: `@ScalaWilliam work is [now open](https://git.work/work/?id=abcd).`.
 
-## Give work
+## Offer work
 
 For an **Open Work Item**, send an **Take Request** to the **Worker User** (target user of the command).
-This turns this item into a **Given Work Item**.
+This turns this item into a **Offered Work Item**.
 
-For a **Given Work Item**, another **Take Request** will cancel an existing one.
+For a **Offered Work Item**, another **Take Request** will cancel an existing one.
 
 Otherwise the command is ignored.
 
@@ -121,7 +135,7 @@ Example message: `@Worker, please [validate yourself](https://git.work/validate)
 
 ## Take Work 
 
-A **Given Work Item** can be turned into **Taken Work Item** only by the **Worker User**.
+An **Offered Work Item** can be turned into **Taken Work Item** only by the **Worker User**.
 
 **Worker User** can request this work directly in the Issue rather than through **Git Work**.
 We shall not include the automated taking functionality to ensure that the **Owner** is in control.
@@ -132,7 +146,7 @@ Example response: `@ScalaWilliam, @Worker took this work`.
 
 ## Decline Work
 
-A **Given Work Item** can be turned into an **Open Work Item** by the **Worker User**.
+An **Offered Work Item** can be turned into an **Open Work Item** by the **Worker User**.
 
 A **Taken Work Item** can be turned into an **Open Work Item** by the **Worker User** if he realises he cannot
 complete the task.
