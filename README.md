@@ -17,23 +17,20 @@ I have several open source and personal projects, all of which are iteratively d
  such as GitHub. The number of things I (the **Client**) wish to accomplish is enough for me to seek freelance IT professionals (**Workers**).
 
 The full lifecycle in freelance IT work is composed of multiple parts such as
-recruitment, interviewing, hiring, negotiation, management, development, payment.
-Typically these parts don't behave in a tandem because they are disjoint.
-Separating parts that should be coupled leads to inefficiency,
-and you are most likely not a fan of inefficiency as a technical person.
+marketing, recruitment, interviewing, hiring, negotiation, management, development, validation, payment.
+Typically these parts don't behave in tandem because they are unnecessarily segregated.
 
-For instance, 92% of messages (*I have evidence*) I receive from recruiters are totally irrelevant to me.
-The lucky clients, at interview stage mostly spend time testing things that
-are not reflective of the actual work. You could easily blow 4 hours on a
-chat if you choose to go to an interview.
+92% of the messages I receive from recruiters are irrelevant, indicating an ineffective [r-selection strategy](https://en.wikipedia.org/wiki/R/K_selection_theory).
+In my experience, interviews are not reflective of the actual work and both sides could easily blow 4 hours of time having an aimless chat.
+Similarly, management and development suffer from anemic requirements that lead to spending time doing the wrong thing.
 
-This is an enormous waste of time that someone has to pay for.
+Combined, this is an enormous waste of time that everyone has to pay for: the investors, workers and consumers.
 This prevents brilliant ideas from blooming and that is very sad.
 
 ### Solution
 
 Git Work solves the problem with the principle of "**Interprocedural Optimization**".
-We fuse distinct procedures where appropriate.
+We appropriately fuse the distinct parts that belong together.
 
 For example, the interviews are reduced to doing the *actual* work.
 When the **Client** accepts your quality of work, you get paid and he gets the work.
