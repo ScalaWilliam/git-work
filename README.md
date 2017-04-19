@@ -19,7 +19,7 @@ When highly coupled parts are disjoint, you typically get inefficiency and I am 
 Git Work fuses this lifecycle into a remarkably simple flow: for example, interviews are reduced to
 doing the *actual* work... and if you succeed, getting paid for it!
 This is contrary to my experience of interviews where you do very little of the actual work
-and have just blown 4 hours of your day.
+and have just blown 4 hours of your day having a chat.
 
 The core principle of Git Work is "**Interprocedural Optimization**", where parts that should 
 belong together do indeed belong together. This principle may have a profound effect on
