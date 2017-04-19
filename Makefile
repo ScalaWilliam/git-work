@@ -13,6 +13,12 @@ run:
 dist:
 	sbt 'show dist'
 
+DOCUMENTS = \
+	README.md \
+	documentation/specification.md \
+	documentation/development.md \
+
 toc:
-	markdown-toc -i README.md || npm install -g markdown-toc && markdown-toc -i README.md
+	which markdown-toc || npm install -g markdown-toc
+	$(foreach DOCUMENT,$(DOCUMENTS),markdown-toc -i $(DOCUMENT);)
 
