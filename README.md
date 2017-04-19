@@ -20,7 +20,7 @@ The full lifecycle in freelance IT work is composed of multiple parts such as
 marketing, recruitment, interviewing, hiring, negotiation, management, development, validation, payment.
 Typically these parts don't behave in tandem because they are unnecessarily segregated.
 
-92% of the messages I receive from recruiters are irrelevant, indicating an ineffective [r-selection strategy](https://en.wikipedia.org/wiki/R/K_selection_theory).
+92% of the messages I receive from recruiters are irrelevant, indicating an ineffective low accuracy [r-selection strategy](https://en.wikipedia.org/wiki/R/K_selection_theory).
 In my experience, interviews are not reflective of the actual work and both sides could easily blow 4 hours of time having an aimless chat.
 Similarly, management and development suffer from anemic requirements that lead to spending time doing the wrong thing.
 
