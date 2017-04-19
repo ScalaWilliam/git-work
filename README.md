@@ -20,7 +20,7 @@ Typically these parts don't behave in a tandem because they are disjoint.
 Separating parts that should be coupled leads to inefficiency,
 and you are most likely not a fan of inefficiency as a technical person.
 
-For instance, 90% of messages I receive from recruiters are irrelevant to me.
+For instance, 92% of messages (*I have evidence*) I receive from recruiters are totally irrelevant to me.
 The lucky clients, at interview stage mostly spend time testing things that
 are not reflective of the actual work. You could easily blow 4 hours on a
 chat if you choose to go to an interview.
