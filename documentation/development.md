@@ -1,3 +1,13 @@
+
+*[Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
+  [Glossary](documentation/analysis.md) ·
+  [Analysis](documentation/analysis.md) ·
+  [Solution](documentation/solution.md) ·
+  [Functional specification](documentation/specification.md) ·
+  [Development documentation](documentation/development.md)*
+
+---
+
 # Development
 
 <!-- toc -->
@@ -29,7 +39,7 @@ First, [Clone the repository](https://help.github.com/articles/cloning-a-reposit
 
 It's all in `dist/www`. You can probably use something like <a href="http://brackets.io/">Brackets</a> for that.
 
-# Deployment
+## Deployment
 
 We use [git.watch](https://git.watch) to deploy automatically to a bare metal server.
 On push to GitHub we trigger the [push script](push). Bare gives us instant deployment and a filesystem.
@@ -40,7 +50,7 @@ or something similar.
 In the current deployment, we have an [nginx](https://www.nginx.com/resources/wiki/) instance 
 [reverse-proxying](https://www.nginx.com/resources/glossary/reverse-proxy-server/) to the Play application instance.
 
-# Technical choices
+## Technical choices
 
 I chose this stack because of my experience and familiarity with it.
 

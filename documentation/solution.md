@@ -1,50 +1,15 @@
-# Key Actors
 
-The project is based around the following **key actors**:
-* **Client**: offers, manages and pays for work items.
-* **Worker**: accepts and performs work items.
+*[Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
+  [Glossary](documentation/analysis.md) ·
+  [Analysis](documentation/analysis.md) ·
+  [Solution](documentation/solution.md) ·
+  [Functional specification](documentation/specification.md) ·
+  [Development documentation](documentation/development.md)*
 
-A **Client** may also take on the work of a **Worker**.
 
-A **Worker** may belong to professions such as:
-* Software architect
-* Software engineer
-* Quality assurance
-* Business analyst
-* Software tester
-* Technical writer
-* Web designer
-* Web developer
-* Graphics designer
-* DevOps engineer
-* Visualisation engineer
-* Data scientist
+---
 
-# User Stories
-
-> The "Who"
-
-> As a **Client** who has a project running in 
-[Git](https://www.quora.com/How-can-I-explain-what-Git-is-does-to-someone-who-is-not-a-programmer/answer/Jake-Boxer),
-I want help with my project on a task, without hiring. I want to have a predictable project velocity. I only want 
-to **pay for the good work done**, not time, nor bad work. I want my workers to communicate project problems to me 
-instead of being heroes. I don’t want to be responsible for the personal development of my workers. I am willing to
-split work appropriately and in incremental fashion.
-
-> As a **Worker** who is familiar with
-[Git](https://www.quora.com/How-can-I-explain-what-Git-is-does-to-someone-who-is-not-a-programmer/answer/Jake-Boxer),
-I want to get paid for the amount of work I do and **not for the hours I work**. I want to have a clear specification
-to work against. I do not want to be **controlled** by an employer and go through tiring interview processes. I want
-to avoid politics, meetings and other things that distract me from my profession. I want to get honest and clear
-feedback and guide my own career. I am willing to communicate, not be a hero and work incrementally.
-
-# Explanation
-> The "What" (1/2) 
-
-GitHub Issues are like e-mail threads, and comments are like individual e-mails. But they are focused around code,
-and live together with the code repository and version control. With version control changes from multiple people
-can be controlled and integrated. A typical e-mail thread would be around one subject and that is the same with an
-Issue.
+# Solution
 
 Git Work targets a technical manager or architect who builds software incrementally,
 where the individual pieces of work would last less than half a working day. Where the piece is too large,

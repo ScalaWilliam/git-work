@@ -1,9 +1,11 @@
  [![Build Status](https://travis-ci.org/ScalaWilliam/git-work.svg?branch=master)](https://travis-ci.org/ScalaWilliam/git-work)
 
-## [Git Work](https://git.work/) - the marketplace for [GitHub Issues](https://help.github.com/articles/github-glossary/#issue)
+## [Git Work](https://git.work/) - the marketplace for Git issues
 
-*[Google Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
-  [Solution documentation](documentation/solution.md) ·
+*[Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
+  [Glossary](documentation/analysis.md) ·
+  [Analysis](documentation/analysis.md) ·
+  [Solution](documentation/solution.md) ·
   [Functional specification](documentation/specification.md) ·
   [Development documentation](documentation/development.md)*
 
