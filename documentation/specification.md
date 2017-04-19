@@ -1,10 +1,10 @@
 *[Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
-  [Glossary](documentation/analysis.md) ·
-  [Analysis](documentation/analysis.md) ·
-  [Solution](documentation/solution.md) ·
-  [Functional specification](documentation/specification.md) ·
-  [Development documentation](documentation/development.md)*
-
+  [Glossary](analysis.md) ·
+  [Analysis](analysis.md) ·
+  [Solution](solution.md) ·
+  [Functional specification](specification.md) ·
+  [Development documentation](development.md)*
+  
 ---
 
 <!-- toc -->
