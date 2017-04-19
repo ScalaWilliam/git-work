@@ -2,13 +2,6 @@
 
 *See: [Git Work on Google Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p)*
 
-- [The Problem](#the-problem)
-- Documentation:
-  - [Solution](documentation/solution.md)
-  - [Specification](documentation/specification.md)
-  - [Development](documentation/development.md)
-- [Licence](#licence)
-
 ### The Problem
 
 I have several open source and personal projects, all of which are iteratively developed fully within
@@ -27,7 +20,8 @@ The lucky clients, at interview stage mostly spend time testing things that
 are not reflective of the actual work. You could easily blow 4 hours on a
 chat if you choose to go to an interview.
 
-This is an enormous waste of time that prevents brilliant ideas from blooming.
+This is an enormous waste of time that someone has to pay for.
+This prevents brilliant ideas from blooming and that is very sad.
 
 ### The solution
 
@@ -38,6 +32,11 @@ For example, the interviews are reduced to doing the *actual* work.
 When the **Client** accepts your quality of work, you get paid and he gets the work.
 
 No waste; both sides win!
+
+### Further reading
+- [Solution documentation](documentation/solution.md)
+- [Functional specification](documentation/specification.md)
+- [Development documentation](documentation/development.md)
 
 ### Licence
 Copyright 2016-2017 [Apt Elements](https://www.scalawilliam.com/)
