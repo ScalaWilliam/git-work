@@ -1,3 +1,5 @@
+ [![Build Status](https://travis-ci.org/ScalaWilliam/git-work.svg?branch=master)](https://travis-ci.org/ScalaWilliam/git-work)
+
 ## [Git Work](https://git.work/) - the marketplace for [GitHub Issues](https://help.github.com/articles/github-glossary/#issue)
 
 *[Google Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
