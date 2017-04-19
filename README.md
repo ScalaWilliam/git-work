@@ -34,6 +34,20 @@ These are the key categories of actors.
 
 They are not mutually exclusive because a Client may take on work of the Worker.
 
+A **Worker** may belong to professions such as:
+* Software architect
+* Software engineer
+* Quality assurance
+* Business analyst
+* Software tester
+* Technical writer
+* Web designer
+* Web developer
+* Graphics designer
+* DevOps engineer
+* Visualisation engineer
+* Data scientist
+
 # User Stories
 
 > As a **Client** who has a project running in 
