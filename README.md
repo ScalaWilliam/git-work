@@ -1,7 +1,38 @@
 # [Git Work](https://git.work/)
 > The marketplace for [GitHub Issues](https://help.github.com/articles/github-glossary/#issue)
 
-See: [Git Work on Google Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p).
+*See: [Git Work on Google Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p)*.
+
+<!-- toc -->
+
+- [The Problem](#the-problem)
+- [Key Actors](#key-actors)
+- [User Stories](#user-stories)
+- [Explanation](#explanation)
+- [User Command Interface](#user-command-interface)
+- [Issue-Level Comment Command examples](#issue-level-comment-command-examples)
+- [User Validation](#user-validation)
+- [Commands and Flow](#commands-and-flow)
+  * [Open work](#open-work)
+  * [Offer work](#offer-work)
+  * [Take Work](#take-work)
+  * [Decline Work](#decline-work)
+  * [Pay for work](#pay-for-work)
+  * [Take away work](#take-away-work)
+  * [Cancel work](#cancel-work)
+- [Other interfaces](#other-interfaces)
+  * [Web interface](#web-interface)
+    + [Work Item page](#work-item-page)
+  * [Event-based interface](#event-based-interface)
+- [Development](#development)
+  * [Running locally](#running-locally)
+  * [Developing](#developing)
+  * [Editing the content](#editing-the-content)
+- [Deployment](#deployment)
+- [Technical choices](#technical-choices)
+- [Licence](#licence)
+
+<!-- tocstop -->
 
 # The Problem
 
@@ -286,7 +317,7 @@ First, [Clone the repository](https://help.github.com/articles/cloning-a-reposit
 ## Running locally
 
 1. <a href="https://www.scalawilliam.com/essential-sbt/">Install SBT</a>
-2. Inside the Git clone of this project, run: `sbt run`
+2. Inside the Git clone of this project, run: `sbt run` or `make run`.
 3. Go to http://localhost:9000
 
 ## Developing
@@ -315,8 +346,14 @@ In the current deployment, we have an [nginx](https://www.nginx.com/resources/wi
 
 I chose this stack because of my experience and familiarity with it.
 
-- [Scala](http://www.scala-lang.org/news/) and [Play framework](https://www.playframework.com/documentation/2.6.x/Migration26) because I'm experienced in it. See [ActionFPS](https://github.com/ScalaWilliam/ActionFPS) and [Git Watch](http://git.watch/) which also use Event Source.
+- [Scala](http://www.scala-lang.org/news/) and 
+    [Play framework](https://www.playframework.com/documentation/2.6.x/Migration26) 
+    because I'm experienced in it. See [ActionFPS](https://github.com/ScalaWilliam/ActionFPS) 
+    and [Git Watch](http://git.watch/) which also use Event Source.
 - Build tool: [SBT](https://www.scalawilliam.com/essential-sbt/) default for Play and supports Docker.
+- TOC generation: [markdown-toc](https://github.com/jonschlinkert/markdown-toc) (run `make toc`).
+
 
 # Licence
-Open source & non-free.
+* Non-free, but open source.
+* Copyright (2016) Apt Elements Ltd ([William Narmontas](https://www.scalawilliam.com/)).
