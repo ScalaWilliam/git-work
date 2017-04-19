@@ -25,7 +25,8 @@ In my experience, interviews are not reflective of the actual work and both side
 Similarly, management and development suffer from anemic requirements that lead to spending time doing the wrong thing.
 
 Combined, this is an enormous waste of time that everyone has to pay for: the investors, workers and consumers.
-This prevents brilliant ideas from blooming and that is very sad.
+What's worse, it's impossible to measure the impact of individual decisions, which leads to further speculation-driven decisions.
+All this prevents brilliant ideas from blooming and that is very sad.
 
 ### Solution
 
