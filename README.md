@@ -7,7 +7,7 @@
   [Functional specification](documentation/specification.md) ·
   [Development documentation](documentation/development.md)*
 
-### The Problem
+### Problem
 
 I have several open source and personal projects, all of which are iteratively developed fully within
  [Git](https://www.quora.com/How-can-I-explain-what-Git-is-does-to-someone-who-is-not-a-programmer/answer/Jake-Boxer)
@@ -28,7 +28,7 @@ chat if you choose to go to an interview.
 This is an enormous waste of time that someone has to pay for.
 This prevents brilliant ideas from blooming and that is very sad.
 
-### The solution
+### Solution
 
 Git Work solves the problem with the principle of "**Interprocedural Optimization**".
 We fuse distinct procedures where appropriate.
