@@ -1,6 +1,9 @@
 ## [Git Work](https://git.work/) - the marketplace for [GitHub Issues](https://help.github.com/articles/github-glossary/#issue)
 
-*See: [Git Work on Google Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p)*
+*[Google Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
+  [Solution documentation](documentation/solution.md) ·
+  [Functional specification](documentation/specification.md) ·
+  [Development documentation](documentation/development.md)*
 
 ### The Problem
 
@@ -32,11 +35,6 @@ For example, the interviews are reduced to doing the *actual* work.
 When the **Client** accepts your quality of work, you get paid and he gets the work.
 
 No waste; both sides win!
-
-### Further reading
-- [Solution documentation](documentation/solution.md)
-- [Functional specification](documentation/specification.md)
-- [Development documentation](documentation/development.md)
 
 ### Licence
 Copyright 2016-2017 [Apt Elements](https://www.scalawilliam.com/)
