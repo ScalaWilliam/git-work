@@ -1,3 +1,4 @@
+<!-- navigation -->
 *[Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
   [Glossary](analysis.md) ·
   [Analysis](analysis.md) ·
@@ -6,6 +7,10 @@
   [Development documentation](development.md)*
   
 ---
+
+<!-- /navigation -->
+
+# Specification
 
 <!-- toc -->
 
@@ -26,8 +31,6 @@
   * [Event-based interface](#event-based-interface)
 
 <!-- tocstop -->
-
-# Specification
 
 # User Command Interface
 
