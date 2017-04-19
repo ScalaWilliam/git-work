@@ -14,7 +14,7 @@ dist:
 	sbt 'show dist'
 
 DOCUMENTS = \
-	README.md \
+	documentation/solution.md \
 	documentation/specification.md \
 	documentation/development.md \
 
