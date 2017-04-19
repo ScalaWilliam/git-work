@@ -22,7 +22,8 @@ Typically these parts don't behave in tandem because they are unnecessarily segr
 
 92% of the messages I receive from recruiters are irrelevant, indicating an ineffective low accuracy [r-selection strategy](https://en.wikipedia.org/wiki/R/K_selection_theory).
 In my experience, interviews are not reflective of the actual work and both sides could easily blow 4 hours of time having an aimless chat.
-Similarly, management and development suffer from anemic requirements that lead to spending time doing the wrong thing.
+Similarly, management and development suffer from anemic requirements that lead to spending time doing the wrong thing
+and frustrating the workers in particular.
 
 Combined, this is an enormous waste of time that everyone has to pay for: the investors, workers and consumers.
 What's worse, it's impossible to measure the impact of individual decisions, which leads to further speculation-driven decisions.
