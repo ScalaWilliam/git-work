@@ -52,6 +52,10 @@ A discussion thread about suggested tasks or questions. Similar to an e-mail thr
 
 A comment in an Issue. Similar to an e-mail in an e-mail thread.
 
+## Potential Worker
+
+A freelancer who is not yet registered on, or aware of, Git Work. 
+
 ## Version Control System
 
 A system that tracks and integrates file changes from multiple people.
