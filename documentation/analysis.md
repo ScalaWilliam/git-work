@@ -47,7 +47,7 @@ Two of the platforms focus on Git as the place of communication.
 Too-restrictive platforms will be [used as springboards](https://www.youtube.com/watch?v=NuqCJpzyK4g). 
 
 ## User stories
-
+```
 As a **Client**,
 I want **Work Items** to be publicly accessible,
 So that I could share them with **Potential Workers** without forcing visitors to register.
@@ -92,4 +92,4 @@ So that when I am efficient I get paid more per time.
 As a **Worker** or a **Client**,
 I want to know the most effective workflow,
 So that I would be able to get on with the work more quickly.
-
+```
