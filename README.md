@@ -11,7 +11,7 @@
 
 ### Problem
 
-I have several open source and personal projects, all of which are iteratively developed fully within
+I have several open source and personal projects, all of which are incrementally developed fully within
  [Git](https://www.quora.com/How-can-I-explain-what-Git-is-does-to-someone-who-is-not-a-programmer/answer/Jake-Boxer)
  [repository management services](https://medium.com/flow-ci/github-vs-bitbucket-vs-gitlab-vs-coding-7cf2b43888a1)
  such as GitHub. The number of things I (the **Client**) wish to accomplish is enough for me to seek freelance IT professionals (**Workers**).
@@ -36,6 +36,8 @@ We appropriately fuse the distinct parts that belong together.
 
 For example, the interviews are reduced to doing the *actual* work.
 When the **Client** accepts your quality of work, you get paid and he gets the work.
+
+The **Worker** benefits from small and well defined **Work items**.
 
 No waste; both sides win!
 
