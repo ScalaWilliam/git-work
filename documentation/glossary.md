@@ -32,6 +32,10 @@ Git Issues are Issues linked to and focused on a Git Repository.
 
 A history of the changes to the project's files.
 
+## Git Work Man
+
+The person responsible for running this project.
+
 ## GitHub
 
 Free and commercial service that hosts and manages Git Repositories. 
@@ -63,6 +67,10 @@ A system that tracks and integrates file changes from multiple people.
 ## Worker
 
 A freelancer who completes work items and gets paid for them.
+
+## Work
+
+Work that is completed for a Work Item.
 
 ## Work Item
 

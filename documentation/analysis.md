@@ -22,9 +22,10 @@
 
 ## Key Actors
 
-* **Client**: creates, offers, manages and pays for work items.
-* **Worker**: accepts and performs work items.
-* **Potential Worker**: becomes a worker by registering.
+* **Git Work Man**: the person behind this project
+* **Client**: creates, offers, manages and pays for work items
+* **Worker**: accepts and performs work items
+* **Potential Worker**: becomes a worker by registering
 
 ## Related services
 
@@ -92,4 +93,21 @@ So that when I am efficient I get paid more per time.
 As a **Worker** or a **Client**,
 I want to know the most effective workflow,
 So that I would be able to get on with the work more quickly.
+
+As the Git Work Man,
+I want to be able to advertise the work as soon as possible,
+So that I could get more of the work done sooner.
+
+As the Git Work Man,
+I want all the project discussions to happen in Git Issues,
+So that I would be able to collect actionable metrics that improve the product.
+
+As the Git Work Man,
+I want **Work Items** to be quality and self-describing,
+So that **Workers** would get done the work done faster by not asking questions.
+
+As the **Client**,
+I want to be able to offer money for finding bugs,
+So that the project could be improved easily.
+
 ```

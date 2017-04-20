@@ -12,31 +12,76 @@
 
 # Solution
 
-Based on the analysis, most importantly the **Client** must be technical in order 
-for us to get rid of the interview process. The **Client** must be able to evaluate
- the quality of work by himself.
- 
-Therefore Git Watch targets a technical manager, architect, or lead developer.
-This person builds software incrementally, where the individual pieces of work 
-would last less than half a working day.
-Where the piece is too large, it must be broken down. He knows how to split work.
+<!-- toc -->
 
-Dispute (wrestling) processes are complex and also unnecessary cruft.
-So, there are no obligations from either side.
-By taking on larger or unclear pieces of work, the **Worker** risks not being paid by the **Client** for the work done,
-and the **Client** risks wasting his own time and not getting paid.
+- [The Client](#the-client)
+- [The Worker](#the-worker)
+- [User Workflow](#user-workflow)
+- [Disputes](#disputes)
+- [Interface](#interface)
 
-Because Disputes are gone, we don't need Escrows.
-If someone wants to play the dispute game, they are free to use another system.
+<!-- tocstop -->
+
+We reduce scope by narrowing down what the **Client** and the **Worker** are.
+
+We reduce scope by excluding unnecessary features.
+
+## The Client
+
+Based on the analysis, the **Client** **must be** technically competent to evaluate the **Work**
+and know **Git** as well as the Git hosting platforms.
+
+Git Work thus does not target non-technical people as **Clients**.
+Non-technical people will be the clients of the **Client**,
+but only within a greater system which is out of scope.
+
+The **Client** is a technical manager, architect, or lead developer.
+He builds software incrementally, where **Work Items** do not take more than 4 hours.
+
+Any items that take longer than that are too large, and thus are to be broken down.
+The **Client** is competent enough how to subdivide work items.
+
+## The Worker
+
+The **Worker** has to be somebody who knows how to use **Git** and is technical to do the work.
+He may belong to IT professions such as:
+* Software architect
+* Software engineer
+* Quality assurance
+* Business analyst
+* Software tester
+* Technical writer
+* Web designer
+* Web developer
+* Graphics designer
+* DevOps engineer
+* Visualisation engineer
+* Data scientist
+
+## User Workflow
+
+An explicit workflow is specified in to ensure there is certainty in every aspect of using Git Work.
 
 A clear workflow is essential. Bug-driven development, Gitchiu (to create new Issues from commits quickly).
  
-Allow Workers to work incrementally in a bug-driven development fashion
-and communicates important information to the Client.
+Allow **Workers** to work incrementally in a bug-driven development fashion
+and communicates important information to the **Client**.
 
-Communication channel must be next to the repository as well so that we can track 
-what is going on. No private communications because that reduces Issue quailty.
- We will have metrics that help determine good working practices.
- Well documented Issues should be easy to get **Workers**
- for, whereas badly documented ones will have difficulty.
+The communications channel is Git Issues and private communications are not permitted.
 
+## Disputes
+
+Dispute handling is essential when dealing with many **Clients**,
+so for the sake of the system at least initially there is only 1 **Client**, the **Git Work Man**.
+This puts Dispute resolution out of scope and simplifies the project significantly. No Escrows needed.
+
+So, there are no obligations from either side.
+
+By taking on larger or unclear pieces of work, the **Worker** risks not being paid by the **Client** for the work done,
+and the **Client** risks wasting his own time and not getting paid.
+
+There are other platforms for those wanting to play the dispute game.
+
+## Interface
+
+The interface is via Git Issues.
