@@ -16,6 +16,10 @@
 
 Person who creates, manages and pays for work items.
 
+## Freelancer
+
+Self-employed person providing services.
+
 ## Git
 
 A version control system.
@@ -42,11 +46,19 @@ A Git Repository hosted on GitHub. [Official definition](https://help.github.com
 
 ## Issue
 
-A discussion thread about suggested tasks or questions.
+A discussion thread about suggested tasks or questions. Similar to an e-mail thread.
+
+## Issue Comment
+
+A comment in an Issue. Similar to an e-mail in an e-mail thread.
+
+## Version Control System
+
+A system that tracks and integrates file changes from multiple people.
 
 ## Worker
 
-Person who completes work items and gets paid
+A freelancer who completes work items and gets paid for them.
 
 ## Work Item
 

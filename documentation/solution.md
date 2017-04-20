@@ -12,35 +12,31 @@
 
 # Solution
 
-Git Work targets a technical manager or architect who builds software incrementally,
-where the individual pieces of work would last less than half a working day. Where the piece is too large,
- it must be broken down.
+Based on the analysis, most importantly the **Client** must be technical in order 
+for us to get rid of the interview process. The **Client** must be able to evaluate
+ the quality of work by himself.
  
-There are no obligations from either side, so no contracts aside those of rights and licensing.
+Therefore Git Watch targets a technical manager, architect, or lead developer.
+This person builds software incrementally, where the individual pieces of work 
+would last less than half a working day.
+Where the piece is too large, it must be broken down. He knows how to split work.
+
+Dispute (wrestling) processes are complex and also unnecessary cruft.
+So, there are no obligations from either side.
 By taking on larger or unclear pieces of work, the **Worker** risks not being paid by the **Client** for the work done,
-and the **Client** risks wasting his own time and not getting what he wants.
+and the **Client** risks wasting his own time and not getting paid.
 
-We are not interested in taking on Escrow services. There are other vendors like Upwork for that, but you'll spend 
-far more time wrestling with people rather than simply getting on with the work.
+Because Disputes are gone, we don't need Escrows.
+If someone wants to play the dispute game, they are free to use another system.
 
+A clear workflow is essential. Bug-driven development, Gitchiu (to create new Issues from commits quickly).
+ 
+Allow Workers to work incrementally in a bug-driven development fashion
+and communicates important information to the Client.
 
-We'll put in extra effort to make sure a good full system workflow is set up as Git Work is only a **piece of the puzzle**
-and not a full fledged system for managing work. For example, it can be used with Gitchiu which lets you
-create new Issues from commits very quickly. This lets developers work incrementally in a bug-driven development fashion
-and communicates important information to the manager behind the delivery.
-
-Feedback is very important, and **Workers** should always communicate to their best ability as should the **Clients**.
-Communication outside of Issues is strongly discouraged because it leads to poorer quality of work.
- We will have metrics that help determine good working practices. Well documented Issues should be easy to get **Workers**
+Communication channel must be next to the repository as well so that we can track 
+what is going on. No private communications because that reduces Issue quailty.
+ We will have metrics that help determine good working practices.
+ Well documented Issues should be easy to get **Workers**
  for, whereas badly documented ones will have difficulty.
 
-Initially the system will not be immediately open to new **Clients** to ensure the right workflow is built up.
- We're open to very good incremental technical managers/architects who could become beta-testers and potentially
-  full fledged partners in this system. Once the essential bits are complete, Git Work should be finished
-  and only small improvements necessary. It should be possible to build new systems on top of Git Work but we 
-  cannot see a clear path for it yet. Definitely we see potential for customising user validation 
-  and payment methods for example, as currently only PayPal would be supported for simplicity.
-
-The system is open to **Workers**.
-
-See the <a href="https://github.com/ScalaWilliam/git-work/wiki/USP">USP Wiki page</a> to have a look at the competition and some philosophy.
