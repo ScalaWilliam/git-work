@@ -84,4 +84,10 @@ There are other platforms for those wanting to play the dispute game.
 
 ## Interface
 
-The interface is via Git Issues.
+The command interface is via Git Issues.
+
+The listing interface is the Git Work website.
+
+New **Work Items** are be posted to Twitter at minimum, but it is worth exploring other platforms where work can be posted.
+
+There is a dashboard to view metrics of the system for validation.
