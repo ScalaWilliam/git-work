@@ -110,4 +110,7 @@ As the **Client**,
 I want to be able to offer money for finding bugs,
 So that the project could be improved easily.
 
+As the Git Work Man,
+I want actionable metrics to look at over time,
+So that I could validate any changes that I make to the system.
 ```
