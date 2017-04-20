@@ -14,6 +14,10 @@
 
 <!-- toc -->
 
+- [Web interface](#web-interface)
+  * [Homepage](#homepage)
+  * [Work Item page](#work-item-page)
+- [Event-based interface](#event-based-interface)
 - [User Command Interface](#user-command-interface)
 - [Issue-Level Comment Command examples](#issue-level-comment-command-examples)
 - [User Validation](#user-validation)
@@ -25,13 +29,8 @@
   * [Pay for work](#pay-for-work)
   * [Take away work](#take-away-work)
   * [Cancel work](#cancel-work)
-- [Other interfaces](#other-interfaces)
-  * [Web interface](#web-interface)
-    + [Work Item page](#work-item-page)
-  * [Event-based interface](#event-based-interface)
 
 <!-- tocstop -->
-
 
 # Web interface
 
