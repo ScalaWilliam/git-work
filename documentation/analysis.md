@@ -117,4 +117,8 @@ So that I could validate the impact of events to make the system more successful
 As the Git Work Man,
 I want the system to be flexible enough to support other Issue systems,
 So that Git Work does not depend on a single point of failure by using one Issue system.
+
+As the Git Work Man,
+I want the Git Work provisioning and deployment scripts to be versioned,
+So that I do not depend on a non-reproducible environment.
 ```
