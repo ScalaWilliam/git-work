@@ -52,6 +52,8 @@ or something similar.
 In the current deployment, we have an [nginx](https://www.nginx.com/resources/wiki/) instance 
 [reverse-proxying](https://www.nginx.com/resources/glossary/reverse-proxy-server/) to the Play application instance.
 
+Provisioning is done with Ansible.
+
 ## Technical choices
 
 I chose this stack because of my experience and familiarity with it.
