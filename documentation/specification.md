@@ -32,9 +32,36 @@
 
 <!-- tocstop -->
 
+
+# Web interface
+
+This is the website at https://git.work/
+
+It uses [progressive enhancement](https://www.shopify.com/partners/blog/what-is-progressive-enhancement-and-why-should-you-care).
+
+Each page contains social media tags such as:
+[1](https://gist.github.com/letanure/10170164), 
+[2](https://gist.github.com/tgdev/8365308), 
+[3](https://gist.github.com/hotmeteor/5055c1dab2f1043058c2).
+
+## Homepage
+
+The homepage contains a list of **Open Work Item**. It is readable without authentication.
+
+Each item in the list contains the Issue Title and Work Item Price. The item hyperlinks to the **Work Item**'s page.
+
+## Work Item page
+
+This page corresponds to a single **Work Item**.
+It contains the Issue Title, the Price and a Hyperlink to the original **Git Issue**.
+
+# Event-based interface
+
+It posts new **Open Work Items** to the [@Git_Work Twitter account](https://twitter.com/Git_Work).
+ 
 # User Command Interface
 
-Git Work is used via the [GitHub Issues](https://help.github.com/articles/github-glossary/#issue) **comments**.
+Git Work is used via [GitHub Issues](https://help.github.com/articles/github-glossary/#issue) **comments**.
 
 The **User** is the person making the **Comment**.
 
@@ -43,12 +70,12 @@ A **Command** is a **Comment** that includes the **Listener User Login**, such a
 A **Listener User** is a GitHub user account that periodically checks for new **Commands** using
 the [GitHub Notifications API](https://developer.github.com/v3/activity/notifications/).
 
-When a **Command** is received, the **Listener** will respond with a **Comment** that includes the **User**'s **Login** in response.
+When a **Command** is received, the **Listener** responds with a **Comment** that includes the **User**'s **Login** in response.
 
 In case of **GitHub**, **User GitHub Login** is not the same as the **User GitHub ID**.
 Latter is permanent, former can be changed. [Example API Endpoint for User by ID](https://api.github.com/user/5359646).
 
-All stored references shall be absolute and permanent identifiers as we must be able to target multiple Issue systems.
+All stored references are absolute and permanent identifiers.
 
 # Issue-Level Comment Command examples
 
@@ -63,10 +90,10 @@ All stored references shall be absolute and permanent identifiers as we must be 
 
 Commands are not executed until the **User** is **Validated**.
 
-When the **User** is not **Validated** the bot will respond with a
+When the **User** is not **Validated** the bot responds with a
 link to `https://git.work/validate/` to achieve **User Validation** using the **Validation Flow**.
 
-Example message: `@ScalaWilliam please [validate yourself](https://git.work/validate/) first.`.
+Example message: `@ScalaWilliam, please [validate yourself](https://git.work/validate/) first.`.
 
 **User Validation** requests authorization with the **User**'s GitHub
 account and a **Validated** PayPal account for security reasons. It may also request Acceptance
@@ -86,24 +113,24 @@ _Made with draw.io_
 Includes the **Issue** in the system as an **Open Work Item** with a **Price** and a reference to the **Issue** and
 the **Work Item Owner** ("**Client**") being the **User** of this **Command**.
 
-This **Open Work Item** will be visible in the index of **Open Work Items** and *may* be shown in the homepage.
+This **Open Work Item** is visible in the index of **Open Work Items** and *may* be shown in the homepage.
 
 **Time Bonus** is optional, and is executed in the **Pay for work** phase.
  
-Example response: `@ScalaWilliam work is [now open](https://git.work/work/?id=abcd).`.
+Example response: `@ScalaWilliam, work is [now open](https://git.work/work/?id=abcd).`.
 
 ## Offer work
 
 For an **Open Work Item**, send an **Take Request** to the **Worker User** (target user of the command).
 This turns this item into a **Offered Work Item**.
 
-For a **Offered Work Item**, another **Take Request** will cancel an existing one.
+For a **Offered Work Item**, another **Take Request** cancels an existing one.
 
 Otherwise the command is ignored.
 
-Example response: `@ScalaWilliam work is offered to @Worker`.
+Example response: `@ScalaWilliam, work is offered to @Worker`.
 
-A **Worker User** who is not a **Validated User** will be asked to go through **User Validation** as well.
+A **Worker User** who is not a **Validated User** is asked to go through **User Validation** as well.
 
 Example message: `@Worker, please [validate yourself](https://git.work/validate) to take work from @ScalaWilliam`.
 
@@ -129,13 +156,13 @@ Example response: `@ScalaWilliam, @Worker declined this work`.
 
 ## Pay for work
 
-Only works for **Taken Work Item**. The **Target User** *must* match the **Worker User**.
+Only works for **Taken Work Item**. The **Target User** matches the **Worker User**.
 
 When this is initiated, it becomes a **Paying Work Item**.
 
 Example response: `@ScalaWilliam, pay @Worker [here](https://git.work/work/pay/?id=abcd)`.
 
-This will initiate steps required to immediately pay the **Worker User** the **Price** of work.
+This initiates the steps required to immediately pay the **Worker User** the **Price** of work.
 The sum of money the **Worker User** receives *may* be less than the **Price** due to money transfer fees.
 
 When the transaction is complete, it becomes **Paid Work Item**.
@@ -159,51 +186,3 @@ Example response: `@Worker, @ScalaWilliam took away the work`.
 An **Open Work Item** can be made into **Cancelled Work** by the **Work Item Owner**.
 
 Example response: `@ScalaWilliam, work was cancelled`.
-
-# Other interfaces
-
-## Web interface
-
-The homepage contains a list of **Open Work**. This list *should* be filterable and readable without
-authentication to attract as many people as possible.
-
-Each item in this list will display:
-* Repository name or **Work Owner**.
-* Issue Title
-* Issue Price
-* How long ago it was Issued
-* Tags (eg language)
-Clicking on the item will lead to a the item's page.
-
-The filter shall allow you to *deselect* stuff rather than select stuff, so you eliminate stuff you are not interested in.
-This filter shall be persisted between user sessions.
-
-For filtering, categories and tagging we *may* use information from the Issue as well as information from the Project itself.
-
-There is an Archive page of work in other stages.
-
-The web interface shall be mobile compatible (not necessarily fully responsive) so that it is usable via a mobile phone like GitHub is.
-
-It shall use [progressive enhancement](https://www.shopify.com/partners/blog/what-is-progressive-enhancement-and-why-should-you-care).
-
-It will include static social media tags for discoverability.
-
-### Work Item page
-Each **Work Item** has a page of its own that links to the **Issue** directly and all the relevant details.
-
-The details will include at minimum what is displayed on the **Open Work** page, but also the item state, and the log of what has been happening as a timeline.
-
-Individualised social media tags will be included for discoverability.
-
-## Event-based interface
-
-We could potentially post new **Open Work** items to multiple targets, such as:
-* Twitter, tagged with specific languages
-* Slack, to specific language channels for instance
-* LinkedIn, or some other data science ways of finding workers and targeting them
-* Instagram/Pinterest potentially to hunt for web designers
-* Google Advertising
- 
-These are beyond the scope of this project and more in the scope of targeted information distribution
-so that we can get more workers in. When we do this of course we can use customised landing pages
-to get an idea of what works and what doesn't, and where the best or worst people come from.

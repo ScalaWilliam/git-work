@@ -89,5 +89,6 @@ The command interface is via Git Issues.
 The listing interface is the Git Work website.
 
 New **Work Items** are be posted to Twitter at minimum, but it is worth exploring other platforms where work can be posted.
+Where items are posted on social media, they appear as rich media.
 
 There is a dashboard to view metrics of the system for validation.
