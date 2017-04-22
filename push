@@ -50,6 +50,8 @@ case "$1" in
       deploy_app
     fi
     ;;
+  deploy-app)
+    deploy_app
   *)
     echo $"Usage: $0 {push|build-deploy}"
     exit 1
