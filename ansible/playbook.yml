@@ -1,4 +1,6 @@
 ---
 - hosts: all
   roles:
+     - git-work
+     - git-work-watch
      - github-notifications-to-file

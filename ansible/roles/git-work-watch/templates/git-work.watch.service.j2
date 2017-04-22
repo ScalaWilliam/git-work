@@ -1,0 +1,11 @@
+[Unit]
+Description=GitWork Watch Service
+[Service]
+User=git-work
+Type=simple
+EnvironmentFile=/etc/git-work
+WorkingDirectory=/home/git-work/repo
+ExecStart=/usr/bin/git-watch -i -- ./push push
+Restart=on-abort
+[Install]
+WantedBy=default.target

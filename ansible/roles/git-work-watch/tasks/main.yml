@@ -1,0 +1,30 @@
+- name: Install "gitwatch-client" npm package
+  npm:
+    name: gitwatch-client
+    global: yes
+
+- name: copy git watch git work sudoers.d
+  template: >
+    src=sudoers.j2
+    dest=/etc/sudoers.d/git-work
+    mode=0755
+
+- name: copy git watch git work systemd service template configuration
+  template: >
+    src=git-work.watch.service.j2
+    dest=/etc/systemd/system/git-work.watch.service
+    mode=0755
+  register: gwts
+
+- name: reload systemd
+  systemd:
+    name: git-work.watch
+    daemon_reload: yes
+  when: gwts.changed
+
+- name: restart and enable the service
+  systemd:
+    name: git-work.watch
+    state: restarted
+    enabled: yes
+  when: gwts.changed

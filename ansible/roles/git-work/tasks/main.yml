@@ -1,0 +1,58 @@
+- name: Set up git-work user
+  user:
+    name: git-work
+
+- name: checkout repo
+  git: repo=https://github.com/ScalaWilliam/git-work.git version=master dest=/home/git-work/repo
+  become: yes
+  become_user: git-work
+
+- name: Creates directory
+  file: path=/home/git-work/instance state=directory
+  become: true
+  become_user: git-work
+
+- name: copy systemd service template configuration
+  template: >
+    src=git-work.service.j2
+    dest=/etc/systemd/system/git-work.service
+    mode=0755
+  register: gws
+
+- name: reload systemd
+  systemd:
+    name: git-work
+    daemon_reload: yes
+  when: gws.changed
+
+- name: Check if it's been deployed yet
+  stat: path=/home/git-work/instance/bin/git-work
+  register: check_git_work
+
+- name: Deploy Git Work without restarting
+  shell: cd /home/git-work/repo && ./push deploy-app
+  become: true
+  become_user: git-work
+  when: check_git_work.stat.exists == false
+  register: deployed
+
+- name: restart and enable the service
+  systemd:
+    name: git-work
+    state: restarted
+    enabled: yes
+  when: gws.changed or (deployed is defined)
+
+- name: copy nginx template configuration
+  template: >
+    src=git-work.nginx.conf.j2
+    dest=/etc/nginx/conf.d/git-work.conf
+    mode=0755
+  register: gwn
+
+- name: reload nginx service
+  systemd:
+    name: nginx
+    state: reloaded
+  when: gwn.changed
+

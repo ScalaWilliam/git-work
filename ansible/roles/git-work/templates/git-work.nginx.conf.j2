@@ -9,7 +9,6 @@ server {
 
   server_name git.work;
   index index.html;
-  root /home/git-work/git-work-0.1/;
 
   location / {
     proxy_set_header        Host            $host;
@@ -24,10 +23,6 @@ server {
     proxy_cache off;
     proxy_pass http://127.0.0.1:58293/;
     add_header Cache-Control no-cache;
-  }
-
-  location /www/ {
-    alias /home/git-work/git-work-0.1/www/;
   }
 
   location ~ /\.git {
