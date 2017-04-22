@@ -3,3 +3,50 @@
     name: github-notifications-to-file
     version: '1.0.1'
     global: yes
+
+- name: Set up git-work user
+  user:
+    name: git-work
+
+- name: Install "gitwatch-client" npm package
+  npm:
+    name: gitwatch-client
+    global: yes
+
+- name: checkout repo
+  git: repo=https://github.com/ScalaWilliam/git-work.git version=master dest=/home/git-work/repo
+  become: yes
+  become_user: git-work
+
+- name: copy systemd service template configuration
+  template: >
+    src=git-work.service.j2
+    dest=/etc/systemd/system/git-work.service
+    mode=0755
+  register: gws
+
+- name: reload systemd
+  systemd:
+    name: git-work
+    daemon_reload: yes
+  when: gws.changed
+
+- name: restart and enable the service
+  systemd:
+    name: git-work
+    state: restarted
+    enabled: yes
+  when: gws.changed
+
+- name: copy nginx template configuration
+  template: >
+    src=git-work.nginx.conf.j2
+    dest=/etc/nginx/conf.d/git-work.conf
+    mode=0755
+  register: gwn
+
+- name: reload nginx service
+  systemd:
+    name: nginx
+    state: reloaded
+  when: gwn.changed
