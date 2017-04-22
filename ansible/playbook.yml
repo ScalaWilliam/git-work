@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+     - github-notifications-to-file

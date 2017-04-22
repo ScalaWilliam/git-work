@@ -1,0 +1,5 @@
+- name: Install "github-notifications-to-file" npm package version 1.0.1
+  npm:
+    name: github-notifications-to-file
+    version: '1.0.1'
+    global: yes
