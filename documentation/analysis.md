@@ -48,56 +48,54 @@ Two of the platforms focus on Git as the place of communication.
 Too-restrictive platforms will be [used as springboards](https://www.youtube.com/watch?v=NuqCJpzyK4g). 
 
 ## User stories
+
+Think about: impressions, conversions, effectiveness, efficiency.
+
+### Client
+
 ```
 As a **Client**,
-I want **Work Items** to be publicly accessible,
-So that I could share them with **Potential Workers** without forcing visitors to register.
+I want to create **Work Items**,
+So that **Workers** would do them.
 
 As a **Client**,
-I want my **Work Items** to be listed (advertised) on Git Work homepage,
-So that the chances increase of a **Worker** or a **Potential Worker** taking on it. 
+I want to publish **Work Items** publicly,
+So that 
+
+As a **Client**,
+I want to publish **Work Items** when I create the **Git Issue**,
+So that I would not have to context-switch,
+And so that I could work more effectively.
 
 As a **Client**,
 I want **Work Items** to be automatically shared on Social Media,
-So that the chances increase of a **Worker** or a **Potential Worker** taking on it,
+So that the impressions to **Potential Workers** would be maximised,
 And so that I could re-share these items myself easily.
+
+As the **Git Work Man**,
+I want **Work Items** to be indexed on the homepage,
+So that visitors would get the idea of the website quicker
+To achieve higher conversions from **Potential Workers** to **Workers**.
+
+```
+
+### Worker
+
+```
+As a **Potential Worker** or a **Worker**,
+I want to find **Work Items** that I am able to work on.
+
+As a **Worker**,
+I want to get paid for the **Work Items** that I do.
  
-As a **Potential Worker** or a **Worker**,
-I want to see a list of available **Work Items** on the Git Work homepage,
-So that I would find **Work Items** that I can do and earn money on.
-
-As a **Potential Worker** or a **Worker**,
-In the list of available **Work Items**,
-I want to be able to deselect categories of **Work Items**,
-So that I would save time by not looking at **Work Items** I am not interested in.
-
 As a **Worker**,
 I want a clear specification of work to be done,
-So I would get the task done and earn money more quickly.
+So that I have a higher chance of getting paid for doing the right work.
+```
 
-As a **Worker**,
-I want to get paid for the work I do.
+### Git Work Man
 
-As a **Client** or **Worker**,
-I want to work within Git and my Git hosting service,
-So that I could minimise context switching and work more effectively.
-
-As a **Client**,
-I want to only pay for the good work done and not the hours done,
-So that I do not waste my money.
-
-As a **Worker**,
-I want to be paid for the good work done,
-So that when I am efficient I get paid more per time.
-
-As a **Worker** or a **Client**,
-I want to know the most effective workflow,
-So that I would be able to get on with the work more quickly.
-
-As the Git Work Man,
-I want to be able to advertise the work as soon as possible,
-So that I could get more of the work done sooner.
-
+```
 As the Git Work Man,
 I want all the project discussions to happen in Git Issues,
 So that I would be able to collect actionable metrics that improve the product.
@@ -106,19 +104,16 @@ As the Git Work Man,
 I want **Work Items** to be quality and self-describing,
 So that **Workers** would get done the work done faster by not asking questions.
 
-As the **Client**,
-I want to be able to offer money for finding bugs,
-So that the project could be improved easily.
-
 As the Git Work Man,
 I want actionable metrics to look at over time,
 So that I could validate the impact of events to make the system more successful.
 
 As the Git Work Man,
-I want the system to be flexible enough to support other Issue systems,
-So that Git Work does not depend on a single point of failure by using one Issue system.
+In future I want the system to support other Issue systems,
+So that Git Work does not depend on a single point of failure.
 
 As the Git Work Man,
-I want the Git Work provisioning and deployment scripts to be versioned,
-So that I do not depend on a non-reproducible environment.
+I want the infrastructure to be code,
+So that I could get DevOps **Workers** on the project.
+
 ```
