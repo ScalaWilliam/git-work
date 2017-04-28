@@ -106,4 +106,14 @@ So that I could get DevOps **Workers** on the project.
 As the **Git Work Man**,
 I want **Work Items** to be indexed on the homepage,
 To achieve higher conversions from **Potential Workers** to **Workers**.
+
 ```
+
+### User
+
+```
+As a **User**,
+I want the site to be mobile accessible,
+So that I could check the state on the go.
+```
+  
