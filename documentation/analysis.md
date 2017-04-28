@@ -48,27 +48,21 @@ Think about: impressions, conversions, effectiveness, efficiency.
 ```
 As a **Client**,
 I want to create **Work Items**,
-So that **Workers** would do them.
+So that **Workers** would perform them.
 
 As a **Client**,
-I want to publish **Work Items** publicly,
-So that 
+I want to publish a **Work Item** when I create a **Git Issue**,
+So that I would not have to context-switch.
 
 As a **Client**,
-I want to publish **Work Items** when I create the **Git Issue**,
-So that I would not have to context-switch,
-And so that I could work more effectively.
+When I post a **Work Item**,
+I want it to automatically be shared on social media,
+So that my they would reach more impressions from **Potential Workers**,
+And so that I could re-share these items myself conveniently.
 
 As a **Client**,
-I want **Work Items** to be automatically shared on Social Media,
-So that the impressions to **Potential Workers** would be maximised,
-And so that I could re-share these items myself easily.
-
-As the **Git Work Man**,
-I want **Work Items** to be indexed on the homepage,
-So that visitors would get the idea of the website quicker
-To achieve higher conversions from **Potential Workers** to **Workers**.
-
+I want my **Work Items** to show on the homepage,
+So that they are more easily discoverable by **Potential Workers**.
 ```
 
 ### Worker
@@ -89,23 +83,27 @@ So that I have a higher chance of getting paid for doing the right work.
 
 ```
 As the Git Work Man,
-I want all the project discussions to happen in Git Issues,
-So that I would be able to collect actionable metrics that improve the product.
+I want all Work Item discussions to take place in Git Issues,
+So that I would be able to discover further interprocedural optimizations,
+So that I could improve quality and volume of work.
 
 As the Git Work Man,
 I want **Work Items** to be quality and self-describing,
-So that **Workers** would get done the work done faster by not asking questions.
+So that would increase the quality of work.
 
 As the Git Work Man,
-I want actionable metrics to look at over time,
-So that I could validate the impact of events to make the system more successful.
+I want to collect actionable metrics,
+So that I could increase the volume and quality of work.
 
 As the Git Work Man,
 In future I want the system to support other Issue systems,
-So that Git Work does not depend on a single point of failure.
+So that Git Work avoids a single point of failure.
 
 As the Git Work Man,
 I want the infrastructure to be code,
 So that I could get DevOps **Workers** on the project.
 
+As the **Git Work Man**,
+I want **Work Items** to be indexed on the homepage,
+To achieve higher conversions from **Potential Workers** to **Workers**.
 ```
