@@ -23,6 +23,3 @@ DOCUMENTS = \
 toc:
 	which markdown-toc || npm install -g markdown-toc
 	$(foreach DOCUMENT,$(DOCUMENTS),markdown-toc -i $(DOCUMENT);)
-
-nav:
-	$(foreach DOCUMENT,$(DOCUMENTS),node documentation/templates/apply-template.js $(DOCUMENT);)

@@ -1,15 +1,3 @@
-<!-- navigation -->
-*[Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
-  [Glossary](glossary.md) ·
-  [Analysis](analysis.md) ·
-  [Solution](solution.md) ·
-  [Functional specification](specification.md) ·
-  [Development documentation](development.md)*
-  
----
-
-<!-- /navigation -->
-
 # Analysis
 
 <!-- toc -->
@@ -22,10 +10,14 @@
 
 ## Key Actors
 
-* **Git Work Man**: the person behind this project
-* **Client**: creates, offers, manages and pays for work items
-* **Worker**: accepts and performs work items
-* **Potential Worker**: becomes a worker by registering
+* **Git Work Man**: the person behind this project.
+  Key goal is to benefit as a **Client**.
+* **Client**: creates, offers, manages and pays for work items.
+  Key goal is to receive labour.
+* **Worker**: accepts and performs work items.
+  Key goal is to get paid.
+* **Potential Worker**: becomes a worker by registering.
+  Key goal is to get paid.
 
 ## Related services
 
