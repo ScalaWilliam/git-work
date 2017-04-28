@@ -46,35 +46,35 @@ Think about: impressions, conversions, effectiveness, efficiency.
 ### Client
 
 ```
-As a **Client**,
-I want to create **Work Items**,
-So that **Workers** would perform them.
+As a Client,
+I want to create Work Items,
+So that Workers would perform them.
 
-As a **Client**,
-I want to publish a **Work Item** when I create a **Git Issue**,
+As a Client,
+I want to publish a Work Item when I create a Git Issue,
 So that I would not have to context-switch.
 
-As a **Client**,
-When I post a **Work Item**,
+As a Client,
+When I post a Work Item,
 I want it to automatically be shared on social media,
-So that my they would reach more impressions from **Potential Workers**,
+So that my they would reach more impressions from Potential Workers,
 And so that I could re-share these items myself conveniently.
 
-As a **Client**,
-I want my **Work Items** to show on the homepage,
-So that they are more easily discoverable by **Potential Workers**.
+As a Client,
+I want my Work Items to show on the homepage,
+So that they are more easily discoverable by Potential Workers.
 ```
 
 ### Worker
 
 ```
-As a **Potential Worker** or a **Worker**,
-I want to find **Work Items** that I am able to work on.
+As a Potential Worker or a Worker,
+I want to find Work Items that I am able to work on.
 
-As a **Worker**,
-I want to get paid for the **Work Items** that I do.
+As a Worker,
+I want to get paid for the Work Items that I do.
  
-As a **Worker**,
+As a Worker,
 I want a clear specification of work to be done,
 So that I have a higher chance of getting paid for doing the right work.
 ```
@@ -88,7 +88,7 @@ So that I would be able to discover further interprocedural optimizations,
 So that I could improve quality and volume of work.
 
 As the Git Work Man,
-I want **Work Items** to be quality and self-describing,
+I want Work Items to be quality and self-describing,
 So that would increase the quality of work.
 
 As the Git Work Man,
@@ -101,18 +101,18 @@ So that Git Work avoids a single point of failure.
 
 As the Git Work Man,
 I want the infrastructure to be code,
-So that I could get DevOps **Workers** on the project.
+So that I could get DevOps Workers on the project.
 
-As the **Git Work Man**,
-I want **Work Items** to be indexed on the homepage,
-To achieve higher conversions from **Potential Workers** to **Workers**.
+As the Git Work Man,
+I want Work Items to be indexed on the homepage,
+To achieve higher conversions from Potential Workers to Workers.
 
 ```
 
 ### User
 
 ```
-As a **User**,
+As a User,
 I want the site to be mobile accessible,
 So that I could check the state on the go.
 ```
