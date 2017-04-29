@@ -1,6 +1,6 @@
  [![Build Status](https://travis-ci.org/ScalaWilliam/git-work.svg?branch=master)](https://travis-ci.org/ScalaWilliam/git-work)
 
-## [Git Work](https://git.work/) - the marketplace for Git issues
+## [Git Work](https://git.work/) - solving a Git issue, get paid.
 
 *[Slides](https://docs.google.com/presentation/d/1o5J6twJ9vyvXOYP_qyf5fXrTT5rfl9VULBgo7Pq-gz4/edit#slide=id.p) ·
   [Glossary](documentation/analysis.md) ·
