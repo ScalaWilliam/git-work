@@ -21,7 +21,7 @@
 
 ## Related services
 
-See my article: [2017 freelance development platforms](https://dev.to/scalawilliam_37/2017-freelance-development-platforms).
+See my article: [2017 freelance development platforms](https://dev.to/scalawilliam/2017-freelance-development-platforms).
 
 Git-focused services are more granular, lower priced, and less bureaucratic.
 
