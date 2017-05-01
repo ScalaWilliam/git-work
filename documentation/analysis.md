@@ -107,6 +107,10 @@ As the Git Work Man,
 I want Work Items to be indexed on the homepage,
 To achieve higher conversions from Potential Workers to Workers.
 
+As the Git Work Man,
+I want the system to be extensible and flat,
+So that I could build new workflows and features without modifying the core.
+
 ```
 
 ### User
