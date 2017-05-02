@@ -111,6 +111,10 @@ As the Git Work Man,
 I want the system to be extensible and flat,
 So that I could build new workflows and features without modifying the core.
 
+As the Git Work Man,
+I want each Work Item to have its own page,
+So that I could track inbound impressions
+
 ```
 
 ### User
