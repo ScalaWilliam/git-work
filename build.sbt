@@ -1,6 +1,12 @@
-scalaVersion := "2.12.1"
-enablePlugins(PlayScala)
-name := "git-work"
-version := "0.1-SNAPSHOT"
-sources in (Compile,doc) := Seq.empty
-publishArtifact in (Compile, packageDoc) := false
+scalaVersion in ThisBuild := "2.12.1"
+version in ThisBuild := "0.1-SNAPSHOT"
+
+lazy val web = Project(
+  id = "web",
+  base = file("web")
+).enablePlugins(PlayScala)
+  .settings(
+    name := "git-work",
+    sources in (Compile, doc) := Seq.empty,
+    publishArtifact in (Compile, packageDoc) := false
+  )

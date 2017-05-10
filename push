@@ -14,7 +14,7 @@ DESTDIR=/home/git-work/instance
 
 deploy_content() {
     git pull
-    rsync --delete -av ./dist/www/. $DESTDIR/www/.
+    rsync --delete -av ./web/dist/www/. $DESTDIR/www/.
 }
 
 
