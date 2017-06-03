@@ -8,6 +8,7 @@ lazy val web = Project(
   .settings(
     name := "git-work",
     sources in (Compile, doc) := Seq.empty,
-    libraryDependencies += guice,
-    publishArtifact in (Compile, packageDoc) := false
+    publishArtifact in (Compile, packageDoc) := false,
+    resolvers += "Akka Snapshot Repository" at "http://repo.akka.io/snapshots/",
+    libraryDependencies += guice
   )
