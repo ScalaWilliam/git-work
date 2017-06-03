@@ -1,10 +1,10 @@
 server {
   listen 80;
 
-  include "/etc/nginx/conf.d/git-work.upstreams.include";
-  include "/etc/nginx/conf.d/git-work.https.include";
+  include "/etc/nginx/conf.d/{{ web_hostname }}.upstreams.include";
+  include "/etc/nginx/conf.d/{{ web_hostname }}.https.include";
 
-  server_name git.work localhost;
+  server_name {{ web_hostname }};
   index index.html;
 
   location / {

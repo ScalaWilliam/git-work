@@ -1,13 +1,21 @@
 ---
-- hosts: git.work
+
+- hosts: all
+  tags:
+    - debug
+  tasks:
+    - name: DEBUG - print host names
+      debug:
+        msg="Host {{ ansible_hostname }} has inventory hostname {{ inventory_hostname }}, has uuid {{ ansible_product_uuid }}"
+    - name: DEBUG - print host vars
+      debug: msg="h = {{ web_hostname }}"
+
+- hosts: all
   tags:
     - setup
   tasks:
   - hostname:
       name: git.work
-  - apt:
-      pkg: nginx
-      state: present
 
 - hosts: all
   tags:

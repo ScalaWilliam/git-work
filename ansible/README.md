@@ -9,7 +9,28 @@ $ vagrant ssh-config | sed -e 's/default/vagw/' >> ~/.ssh/config
 $ ansible-playbook -i vagw, playbook.yml
 ```
 
+## Dev provisioning
+
+Using Vagrant and Ansible.
+
+```
+$ vagrant provision
+$ vagrant ssh-config | sed -e 's/default/vagw/' >> ~/.ssh/config
+$ ssh vagw
+```
+
+## Provisioning procedure
+
+Using Ansible.
+
+1. Set up a host
+2. Add a `host_vars` file with setting for `web_hostname`.
+3. Eg: `ansible-playbook --verbose -i test-sg.git.work, --tags ssl playbook.yml`
+4. To debug, `ansible all -i test-sg.git.work, -a 'systemctl status nginx.service'`
+
 ## Deployment procedure
+
+> Work-in-progress
 
 1. Get current git hash
 2. Fetch repository

@@ -9,7 +9,7 @@
 
 - name: NGINX | Installing NGINX
   apt:
-    pkg: nginx
+    package: nginx=1.13.*
     state: present
     update_cache: yes
   when: new_repo.changed
@@ -33,17 +33,17 @@
   copy:
     content: |
       set $git_work_endpoint http://127.0.0.1:12345;
-    dest: /etc/nginx/conf.d/git-work.upstreams.include
+    dest: "/etc/nginx/conf.d/{{ web_hostname }}.upstreams.include"
 
 - name: ensure ssl file exists
   file:
-    path: /etc/nginx/conf.d/git-work.https.include
+    path: "/etc/nginx/conf.d/{{ web_hostname }}.https.include"
     state: touch
 
 - name: copy nginx template configuration
   template: >
     src=git-work.nginx.conf.j2
-    dest=/etc/nginx/conf.d/git-work.conf
+    dest=/etc/nginx/conf.d/{{ web_hostname }}.conf
     mode=0755
   register: gwn
 
