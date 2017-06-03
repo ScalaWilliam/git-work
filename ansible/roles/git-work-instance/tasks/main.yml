@@ -92,6 +92,11 @@
     daemon_reload: yes
   when: gws.changed
 
+- name: Enable service
+  service:
+    name: "{{ service_name }}"
+    enabled: yes
+
 - name: Check if it's been deployed
   stat: "path={{ instance_dir }}/bin/git-work"
   register: check_git_work

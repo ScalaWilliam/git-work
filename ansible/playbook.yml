@@ -1,10 +1,27 @@
 ---
+- hosts: git.work
+  tags:
+    - setup
+  tasks:
+  - hostname:
+      name: git.work
+  - apt:
+      pkg: nginx
+      state: present
+
 - hosts: all
   tags:
     - nginx
   become: yes
   roles:
     - role: git-work-nginx
+
+- hosts: all
+  become: yes
+  tags:
+    - ssl
+  roles:
+    - role: git-work-nginx-ssl
 
 - hosts: all
   become: yes
@@ -16,12 +33,3 @@
       instance_dir: /home/git-work/blue
       user: git-work
       service_name: git-work-blue
-
-- hosts: all
-  become: yes
-  tags:
-    - ssl
-  roles:
-    - role: jdauphant.ssl-certs
-      ssl_certs_common_name: "git.work"
-    - role: git-work-nginx-ssl

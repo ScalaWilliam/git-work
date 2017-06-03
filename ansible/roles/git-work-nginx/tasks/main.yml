@@ -3,24 +3,42 @@
 
 - name: NGINX | Adding sources.list deb url for NGINX
   apt_repository:
-    repo: deb http://nginx.org/packages/mainline/ubuntu/ trusty nginx
+    repo: deb http://nginx.org/packages/mainline/debian/ jessie nginx
     state: present
   register: new_repo
-
-- name: NGINX | Updating apt cache
-  apt:
-    update_cache: yes
-  when: new_repo.changed
 
 - name: NGINX | Installing NGINX
   apt:
     pkg: nginx
     state: present
+    update_cache: yes
+  when: new_repo.changed
+
+- name: NGINX | Unmask NGINX
+  service:
+    name: nginx
+    masked: no
+
+- name: NGINX | Enable NGINX
+  service:
+    name: nginx
+    enabled: yes
 
 - name: NGINX | Starting NGINX
   service:
     name: nginx
     state: started
+
+- name: ensure upstream file exists
+  copy:
+    content: |
+      set $git_work_endpoint http://127.0.0.1:12345;
+    dest: /etc/nginx/conf.d/git-work.upstreams.include
+
+- name: ensure ssl file exists
+  file:
+    path: /etc/nginx/conf.d/git-work.https.include
+    state: touch
 
 - name: copy nginx template configuration
   template: >
@@ -34,14 +52,3 @@
     name: nginx
     state: reloaded
   when: gwn.changed
-
-- name: ensure upstream file exists
-  copy:
-    content: |
-      set $git_work_endpoint http://127.0.0.1:12345;
-    dest: /etc/nginx/conf.d/git-work.upstreams.include
-
-- name: ensure ssl file exists
-  file:
-    path: /etc/nginx/conf.d/git-work.https.include
-    state: touch
