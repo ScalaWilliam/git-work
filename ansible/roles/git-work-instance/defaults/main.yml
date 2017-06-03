@@ -1,0 +1,1 @@
+local_repository: "/home/{{ user }}/repo"

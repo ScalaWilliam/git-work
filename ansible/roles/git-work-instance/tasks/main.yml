@@ -1,0 +1,135 @@
+- name: Set up git-work user
+  user:
+    name: "{{ user }}"
+
+- name: ensure git installed
+  package:
+    name: git
+    state: present
+
+- name: ensure rsync installed, for fast sbt set up
+  package:
+    name: rsync
+    state: present
+
+- name: ensure apt-transport-https installed
+  package:
+    name: apt-transport-https
+    state: present
+
+- name: Add backports
+  apt_repository:
+    repo: deb http://ftp.debian.org/debian jessie-backports main
+    state: present
+  register: backports_added
+
+- name: ensure jdk certs installed
+  apt:
+    name: ca-certificates-java
+    default_release: jessie-backports
+    state: present
+
+- name: ensure openjdk-8-jdk installed
+  apt:
+    default_release: jessie-backports
+    name: openjdk-8-jdk
+    state: present
+
+- name: correct java version selected
+  alternatives:
+    name: java
+    path: /usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java
+
+- name: Add SBT repository
+  apt_repository:
+    repo: deb https://dl.bintray.com/sbt/debian /
+    state: present
+  register: repo_added
+
+- apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+    state: present
+
+- name: ensure sbt is installed
+  package:
+    name: sbt=0.13.15.2
+    state: present
+    update_cache: yes
+  when: repo_added is defined
+
+- name: Creates sbt plugins dir
+  become_user: "{{ user }}"
+  file: "path=/home/{{ user }}/.sbt/0.13/plugins/ state=directory"
+
+- name: ensure coursier is enabled for sbt
+  become_user: "{{ user }}"
+  copy:
+    content: |
+      addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.0-RC3")
+    dest: "/home/{{ user }}/.sbt/0.13/plugins/build.sbt"
+
+- name: checkout repo
+  git: "repo=https://github.com/ScalaWilliam/git-work.git version=master dest={{ local_repository }}"
+  become_user: "{{ user }}"
+
+- name: Create instance directory
+  file: "path={{ instance_dir }} state=directory"
+  become: true
+  become_user: "{{ user }}"
+
+- name: copy systemd service template configuration
+  become: true
+  template: >
+    src=git-work.service.j2
+    dest="/etc/systemd/system/{{ service_name }}.service"
+    mode=0755
+  register: gws
+
+- name: reload systemd
+  become: true
+  systemd:
+    name: "{{ service_name }}"
+    daemon_reload: yes
+  when: gws.changed
+
+- name: Check if it's been deployed
+  stat: "path={{ instance_dir }}/bin/git-work"
+  register: check_git_work
+  become: true
+  become_user: "{{ user }}"
+
+- name: Deploy Git Work without restarting
+  shell: "cd {{ local_repository }} && DESTDIR={{ instance_dir }} ./push deploy-app"
+  become: true
+  become_user: "{{ user }}"
+  when: check_git_work.stat.exists == false
+  register: deployed
+
+- name: restart and enable the service
+  become: true
+  systemd:
+    name: "{{ service_name }}"
+    state: restarted
+    enabled: yes
+  when: gws.changed or (deployed is defined)
+
+- name: copy nginx template configuration
+  template: >
+    src=git-work.nginx.conf.j2
+    dest=/etc/nginx/conf.d/git-work.conf
+    mode=0755
+  register: gwn
+
+- name: reload nginx service
+  become: true
+  systemd:
+    name: nginx
+    state: reloaded
+  when: gwn.changed
+
+- name: ensure service can be restarted by the user
+  template: >
+    src=sudoers.j2
+    dest=/etc/sudoers.d/{{ service_name }}
+    mode=0755

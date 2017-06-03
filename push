@@ -10,8 +10,6 @@
 # content deploys. When we reach large scale maybe we'll look at upgrading.
 #
 
-DESTDIR=/home/git-work/instance
-
 deploy_content() {
     git pull
     rsync --delete -av ./web/dist/www/. $DESTDIR/www/.
