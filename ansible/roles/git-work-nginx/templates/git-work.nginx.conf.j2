@@ -1,15 +1,10 @@
 server {
   listen 80;
-  #listen 443 ssl http2;
 
-  #ssl on;
+  include "/etc/nginx/conf.d/git-work.upstreams.include";
+  include "/etc/nginx/conf.d/git-work.https.include";
 
-  include "/etc/nginx/conf.d/git-work.upstreams";
-
-  #ssl_certificate /etc/letsencrypt/live/git.work/fullchain.pem;
-  #ssl_certificate_key /etc/letsencrypt/live/git.work/privkey.pem;
-
-  server_name git.work;
+  server_name git.work localhost;
   index index.html;
 
   location / {

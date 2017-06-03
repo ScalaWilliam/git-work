@@ -1,8 +1,12 @@
 
 ```
+$ vagrant up
 $ ansible-galaxy install ansiblebit.oracle-java
 $ ansible-galaxy install geerlingguy.nginx
+$ ansible-galaxy install jdauphant.ssl-certs
 $ ansible-playbook -i hostname, playbook.yml
+$ vagrant ssh-config | sed -e 's/default/vagw/' >> ~/.ssh/config
+$ ansible-playbook -i vagw, playbook.yml
 ```
 
 ## Deployment procedure

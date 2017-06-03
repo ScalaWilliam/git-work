@@ -3,9 +3,8 @@ Description=GitWork Service {{ service_name }}
 [Service]
 User={{ user }}
 Type=simple
-#EnvironmentFile=/etc/git-work
 WorkingDirectory={{ instance_dir }}
-ExecStart={{ instance_dir }}/bin/git-work -Dhttp.port={{ instance_port }}
+ExecStart={{ instance_dir }}/bin/git-work -Dhttp.port={{ instance_port }} -Dconfig.file=/home/{{ user }}/production.conf
 PIDFile={{ instance_dir }}/RUNNING_PID
 Restart=on-abort
 [Install]

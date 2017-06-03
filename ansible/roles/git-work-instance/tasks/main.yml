@@ -72,6 +72,13 @@
   file: "path={{ instance_dir }} state=directory"
   become_user: "{{ user }}"
 
+- name: ensure prod configuration file exists
+  become_user: "{{ user }}"
+  file:
+    path: "/home/{{ user }}/production.conf"
+    state: touch
+    mode: "u+rw,g-wx,o-rwx"
+
 - name: copy systemd service template configuration
   template: >
     src=git-work.service.j2

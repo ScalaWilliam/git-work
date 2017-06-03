@@ -1,14 +1,27 @@
 ---
-- hosts: allx
+- hosts: all
+  tags:
+    - nginx
   become: yes
   roles:
     - role: git-work-nginx
 
 - hosts: all
   become: yes
+  tags:
+    - instance
   roles:
-     - role: git-work-instance
-       instance_port: 12345
-       instance_dir: /home/git-work/blue
-       user: git-work
-       service_name: git-work-blue
+    - role: git-work-instance
+      instance_port: 12345
+      instance_dir: /home/git-work/blue
+      user: git-work
+      service_name: git-work-blue
+
+- hosts: all
+  become: yes
+  tags:
+    - ssl
+  roles:
+    - role: jdauphant.ssl-certs
+      ssl_certs_common_name: "git.work"
+    - role: git-work-nginx-ssl

@@ -39,4 +39,9 @@
   copy:
     content: |
       set $git_work_endpoint http://127.0.0.1:12345;
-    dest: /etc/nginx/conf.d/git-work.upstreams
+    dest: /etc/nginx/conf.d/git-work.upstreams.include
+
+- name: ensure ssl file exists
+  file:
+    path: /etc/nginx/conf.d/git-work.https.include
+    state: touch
