@@ -21,12 +21,14 @@
   apt_repository:
     repo: deb http://repos.azulsystems.com/debian stable main
     state: present
+  register: zulu_repository_added
 
 - name: ensure zulu jdk installed
   apt:
     name: zulu-8=8.4.0.1
     state: present
     update_cache: yes
+  when: zulu_repository_added.changed
 
 ## SBT
 
@@ -34,6 +36,7 @@
   apt_repository:
     repo: deb https://dl.bintray.com/sbt/debian /
     state: present
+  register: sbt_repository_added
 
 - name: add sbt keyserver
   apt_key:
@@ -46,6 +49,7 @@
     name: sbt=0.13.15.2
     state: present
     update_cache: yes
+  when: sbt_repository_added.changed
 
 
 - name: Creates sbt plugins dir
@@ -62,6 +66,7 @@
 - name: checkout repo
   git: "repo=https://github.com/ScalaWilliam/git-work.git version=master dest={{ local_repository }}"
   become_user: "{{ user }}"
+  register: checkout
 
 - name: Create instance directory
   file: "path={{ instance_dir }} state=directory"
@@ -90,7 +95,7 @@
   args:
     chdir: "{{ local_repository }}"
   become_user: "{{ user }}"
-  when: check_git_work.stat.exists == false
+  when: check_git_work.stat.exists == false or (checkout.before != checkout.after)
   register: built
 
 - name: Extract Git Work .tar.gz
