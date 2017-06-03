@@ -65,11 +65,9 @@
 
 - name: Create instance directory
   file: "path={{ instance_dir }} state=directory"
-  become: true
   become_user: "{{ user }}"
 
 - name: copy systemd service template configuration
-  become: true
   template: >
     src=git-work.service.j2
     dest="/etc/systemd/system/{{ service_name }}.service"
@@ -77,7 +75,6 @@
   register: gws
 
 - name: reload systemd
-  become: true
   systemd:
     name: "{{ service_name }}"
     daemon_reload: yes
@@ -86,37 +83,31 @@
 - name: Check if it's been deployed
   stat: "path={{ instance_dir }}/bin/git-work"
   register: check_git_work
-  become: true
   become_user: "{{ user }}"
 
-- name: Deploy Git Work without restarting
-  shell: "cd {{ local_repository }} && DESTDIR={{ instance_dir }} ./push deploy-app"
-  become: true
+- name: Build Git Work .tgz
+  shell: sbt -no-colors 'show universal:packageZipTarball'
+  args:
+    chdir: "{{ local_repository }}"
   become_user: "{{ user }}"
   when: check_git_work.stat.exists == false
-  register: deployed
+  register: built
+
+- name: Extract Git Work .tar.gz
+  unarchive:
+    src: "{{ local_repository }}/web/target/universal/git-work-0.1-SNAPSHOT.tgz"
+    dest: "{{ instance_dir }}"
+    remote_src: True
+    extra_opts: ['--strip-components=1', '--show-stored-names']
+  when: built is defined
+  register: extracted
 
 - name: restart and enable the service
-  become: true
   systemd:
     name: "{{ service_name }}"
     state: restarted
     enabled: yes
-  when: gws.changed or (deployed is defined)
-
-- name: copy nginx template configuration
-  template: >
-    src=git-work.nginx.conf.j2
-    dest=/etc/nginx/conf.d/git-work.conf
-    mode=0755
-  register: gwn
-
-- name: reload nginx service
-  become: true
-  systemd:
-    name: nginx
-    state: reloaded
-  when: gwn.changed
+  when: gws.changed or (extracted is defined)
 
 - name: ensure service can be restarted by the user
   template: >

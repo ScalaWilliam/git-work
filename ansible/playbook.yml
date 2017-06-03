@@ -1,10 +1,10 @@
 ---
-- hosts: all
+- hosts: allx
   become: yes
   roles:
     - role: git-work-nginx
 
-- hosts: allx
+- hosts: all
   become: yes
   roles:
      - role: git-work-instance

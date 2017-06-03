@@ -8,5 +8,6 @@ lazy val web = Project(
   .settings(
     name := "git-work",
     sources in (Compile, doc) := Seq.empty,
+    libraryDependencies += guice,
     publishArtifact in (Compile, packageDoc) := false
   )
