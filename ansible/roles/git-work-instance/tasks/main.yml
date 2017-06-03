@@ -2,51 +2,41 @@
   user:
     name: "{{ user }}"
 
-- name: ensure git installed
-  package:
-    name: git
-    state: present
-
-- name: ensure rsync installed, for fast sbt set up
-  package:
-    name: rsync
-    state: present
-
 - name: ensure apt-transport-https installed
   package:
     name: apt-transport-https
     state: present
 
-- name: Add backports
+- name: ensure git installed
+  package:
+    name: git
+    state: present
+
+
+## JDK 8
+- name: zulu apt key
+  apt_key: keyserver='hkp://keyserver.ubuntu.com:80' id=0x219BD9C9
+
+- name: Add Zulu repository
   apt_repository:
-    repo: deb http://ftp.debian.org/debian jessie-backports main
+    repo: deb http://repos.azulsystems.com/debian stable main
     state: present
-  register: backports_added
 
-- name: ensure jdk certs installed
+- name: ensure zulu jdk installed
   apt:
-    name: ca-certificates-java
-    default_release: jessie-backports
+    name: zulu-8=8.4.0.1
     state: present
+    update_cache: yes
 
-- name: ensure openjdk-8-jdk installed
-  apt:
-    default_release: jessie-backports
-    name: openjdk-8-jdk
-    state: present
-
-- name: correct java version selected
-  alternatives:
-    name: java
-    path: /usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java
+## SBT
 
 - name: Add SBT repository
   apt_repository:
     repo: deb https://dl.bintray.com/sbt/debian /
     state: present
-  register: repo_added
 
-- apt_key:
+- name: add sbt keyserver
+  apt_key:
     keyserver: keyserver.ubuntu.com
     id: 2EE0EA64E40A89B84B2DF73499E82A75642AC823
     state: present
@@ -56,7 +46,7 @@
     name: sbt=0.13.15.2
     state: present
     update_cache: yes
-  when: repo_added is defined
+
 
 - name: Creates sbt plugins dir
   become_user: "{{ user }}"

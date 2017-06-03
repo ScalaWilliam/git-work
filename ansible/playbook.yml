@@ -2,7 +2,11 @@
 - hosts: all
   become: yes
   roles:
-     - geerlingguy.java
+    - role: git-work-nginx
+
+- hosts: allx
+  become: yes
+  roles:
      - role: git-work-instance
        instance_port: 12345
        instance_dir: /home/git-work/blue

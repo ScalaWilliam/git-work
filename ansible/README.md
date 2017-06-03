@@ -1,6 +1,7 @@
 
 ```
 $ ansible-galaxy install ansiblebit.oracle-java
+$ ansible-galaxy install geerlingguy.nginx
 $ ansible-playbook -i hostname, playbook.yml
 ```
 

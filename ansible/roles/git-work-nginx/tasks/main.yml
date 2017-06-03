@@ -1,0 +1,42 @@
+- name: NGINX | Adding NGINX signing key
+  apt_key: url=http://nginx.org/keys/nginx_signing.key state=present
+
+- name: NGINX | Adding sources.list deb url for NGINX
+  apt_repository:
+    repo: deb http://nginx.org/packages/mainline/ubuntu/ trusty nginx
+    state: present
+  register: new_repo
+
+- name: NGINX | Updating apt cache
+  apt:
+    update_cache: yes
+  when: new_repo.changed
+
+- name: NGINX | Installing NGINX
+  apt:
+    pkg: nginx
+    state: present
+
+- name: NGINX | Starting NGINX
+  service:
+    name: nginx
+    state: started
+
+- name: copy nginx template configuration
+  template: >
+    src=git-work.nginx.conf.j2
+    dest=/etc/nginx/conf.d/git-work.conf
+    mode=0755
+  register: gwn
+
+- name: reload nginx service
+  systemd:
+    name: nginx
+    state: reloaded
+  when: gwn.changed
+
+- name: ensure upstream file exists
+  copy:
+    content: |
+      set $git_work_endpoint http://127.0.0.1:12345;
+    dest: /etc/nginx/conf.d/git-work.upstreams

@@ -15,8 +15,6 @@ deploy_content() {
     rsync --delete -av ./web/dist/www/. $DESTDIR/www/.
 }
 
-
-
 deploy_app() {
   git pull
 
