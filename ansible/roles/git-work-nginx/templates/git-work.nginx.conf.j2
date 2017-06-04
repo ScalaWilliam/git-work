@@ -18,11 +18,7 @@ server {
     chunked_transfer_encoding off;
     proxy_buffering off;
     proxy_cache off;
-    proxy_pass $git_work_endpoint/;
+    proxy_pass $git_work_endpoint;
     add_header Cache-Control no-cache;
-  }
-
-  location ~ /\.git {
-    deny all;
   }
 }
