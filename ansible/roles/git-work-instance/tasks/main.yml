@@ -30,44 +30,6 @@
     update_cache: yes
   when: zulu_repository_added.changed
 
-## SBT
-
-- name: Add SBT repository
-  apt_repository:
-    repo: deb https://dl.bintray.com/sbt/debian /
-    state: present
-  register: sbt_repository_added
-
-- name: add sbt keyserver
-  apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: 2EE0EA64E40A89B84B2DF73499E82A75642AC823
-    state: present
-
-- name: ensure sbt is installed
-  package:
-    name: sbt=0.13.15.2
-    state: present
-    update_cache: yes
-  when: sbt_repository_added.changed
-
-
-- name: Creates sbt plugins dir
-  become_user: "{{ user }}"
-  file: "path=/home/{{ user }}/.sbt/0.13/plugins/ state=directory"
-
-- name: ensure coursier is enabled for sbt
-  become_user: "{{ user }}"
-  copy:
-    content: |
-      addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.0-RC3")
-    dest: "/home/{{ user }}/.sbt/0.13/plugins/build.sbt"
-
-- name: checkout repo
-  git: "repo=https://github.com/ScalaWilliam/git-work.git version=master dest={{ local_repository }}"
-  become_user: "{{ user }}"
-  register: checkout
-
 - name: Create instance directory
   file: "path={{ instance_dir }} state=directory"
   become_user: "{{ user }}"
@@ -110,21 +72,12 @@
   register: check_git_work
   become_user: "{{ user }}"
 
-- name: Build Git Work .tgz
-  shell: sbt -no-colors 'show universal:packageZipTarball'
-  args:
-    chdir: "{{ local_repository }}"
-  become_user: "{{ user }}"
-  when: check_git_work.stat.exists == false or (checkout.before != checkout.after)
-  register: built
-
 - name: Extract Git Work .tar.gz
   unarchive:
-    src: "{{ local_repository }}/web/target/universal/git-work-0.1-SNAPSHOT.tgz"
+    src: http://odin.duel.gg/git-work-0.1-SNAPSHOT.tgz
     dest: "{{ instance_dir }}"
     remote_src: True
     extra_opts: ['--strip-components=1', '--show-stored-names']
-  when: built is defined
   register: extracted
 
 - name: restart and enable the service

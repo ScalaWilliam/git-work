@@ -29,6 +29,11 @@
     name: nginx
     state: started
 
+- name: Disable the default site
+  file:
+    path: /etc/nginx/conf.d/default.conf
+    state: absent
+
 - name: ensure upstream file exists
   copy:
     content: |
@@ -45,10 +50,8 @@
     src=git-work.nginx.conf.j2
     dest=/etc/nginx/conf.d/{{ web_hostname }}.conf
     mode=0755
-  register: gwn
 
 - name: reload nginx service
   systemd:
     name: nginx
     state: reloaded
-  when: gwn.changed

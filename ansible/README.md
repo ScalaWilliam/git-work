@@ -7,6 +7,7 @@ $ ansible-galaxy install jdauphant.ssl-certs
 $ ansible-playbook -i hostname, playbook.yml
 $ vagrant ssh-config | sed -e 's/default/vagw/' >> ~/.ssh/config
 $ ansible-playbook -i vagw, playbook.yml
+$ ansible-playbook -i vagw, --tags instance --extra-vars "web_hostname=localhost" playbook.yml
 ```
 
 ## Dev provisioning
