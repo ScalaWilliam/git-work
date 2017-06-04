@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  become: yes
+  roles:
+    - role: git-work-nginx
+    - role: git-work-instance
+      instance_port: 12345
+      instance_dir: /home/git-work/instance
+      user: git-work
+      service_name: git-work

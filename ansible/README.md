@@ -1,33 +1,25 @@
 
-```
-$ vagrant up
-$ ansible-galaxy install ansiblebit.oracle-java
-$ ansible-galaxy install geerlingguy.nginx
-$ ansible-galaxy install jdauphant.ssl-certs
-$ ansible-playbook -i hostname, playbook.yml
-$ vagrant ssh-config | sed -e 's/default/vagw/' >> ~/.ssh/config
-$ ansible-playbook -i vagw, playbook.yml
-$ ansible-playbook -i vagw, --tags instance --extra-vars "web_hostname=localhost" playbook.yml
-```
-
 ## Dev provisioning
 
-Using Vagrant and Ansible.
+Using Vagrant and Ansible
 
 ```
-$ vagrant provision
+$ vagrant up
 $ vagrant ssh-config | sed -e 's/default/vagw/' >> ~/.ssh/config
+$ ansible-playbook -i vagw, --tags instance --extra-vars "web_hostname=localhost" dev-instance.yml
+$ curl http://localhost:8111/
 $ ssh vagw
 ```
 
 ## Provisioning procedure
 
-Using Ansible.
+Using Ansible:
 
-1. Set up a host
-2. Add a `host_vars` file with setting for `web_hostname`.
-3. Eg: `ansible-playbook --verbose -i test-sg.git.work, --tags ssl playbook.yml`
-4. To debug, `ansible all -i test-sg.git.work, -a 'systemctl status nginx.service'`
+```
+$ ansible-playbook -i git.work, --extra-vars "web_hostname=git.work" prod-instance.yml
+$ curl -i https://git.work/
+$ ansible all -i test-sg.git.work, -a 'systemctl status nginx.service'
+```
 
 ## Deployment procedure
 

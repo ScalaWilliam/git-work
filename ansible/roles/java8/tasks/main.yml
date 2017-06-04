@@ -1,0 +1,22 @@
+---
+
+- name: Ensure apt-transport-https installed to be able to update apt
+  package:
+    name: apt-transport-https
+    state: present
+
+- name: Ensure Zulu Apt Key is available to add repository
+  apt_key: keyserver='hkp://keyserver.ubuntu.com:80' id=0x219BD9C9
+
+- name: Ensure Azul repository is available to install Zulu JDK
+  apt_repository:
+    repo: deb http://repos.azulsystems.com/debian stable main
+    state: present
+  register: zulu_repository_added
+
+- name: Ensure Zulu JDK installed to run Java apps
+  apt:
+    name: zulu-8=8.4.0.1
+    state: present
+    update_cache: yes
+  when: zulu_repository_added.changed

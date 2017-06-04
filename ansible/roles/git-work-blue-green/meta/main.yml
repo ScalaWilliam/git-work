@@ -1,0 +1,13 @@
+---
+dependencies:
+  - role: git-work-instance
+    instance_port: 12345
+    instance_dir: /home/git-work/blue
+    user: git-work
+    service_name: git-work-blue
+
+  - role: git-work-instance
+    instance_port: 12346
+    instance_dir: /home/git-work/green
+    user: git-work
+    service_name: git-work-green

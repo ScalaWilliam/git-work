@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  become: yes
+  roles:
+    - role: git-work-nginx
+    - role: auto-ssl
+      registration_email: hello@scalawilliam.com
+    - role: git-work-blue-green

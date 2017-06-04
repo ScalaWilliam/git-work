@@ -2,29 +2,6 @@
   user:
     name: "{{ user }}"
 
-- name: ensure apt-transport-https installed
-  package:
-    name: apt-transport-https
-    state: present
-
-
-## JDK 8
-- name: zulu apt key
-  apt_key: keyserver='hkp://keyserver.ubuntu.com:80' id=0x219BD9C9
-
-- name: Add Zulu repository
-  apt_repository:
-    repo: deb http://repos.azulsystems.com/debian stable main
-    state: present
-  register: zulu_repository_added
-
-- name: ensure zulu jdk installed
-  apt:
-    name: zulu-8=8.4.0.1
-    state: present
-    update_cache: yes
-  when: zulu_repository_added.changed
-
 - name: Create instance directory
   file: "path={{ instance_dir }} state=directory"
   become_user: "{{ user }}"
@@ -73,6 +50,7 @@
     dest: "{{ instance_dir }}"
     remote_src: True
     extra_opts: ['--strip-components=1', '--show-stored-names']
+  when: (check_git_work.stat.exists == False) or (force_deploy is defined)
   register: extracted
 
 - name: restart and enable the service
