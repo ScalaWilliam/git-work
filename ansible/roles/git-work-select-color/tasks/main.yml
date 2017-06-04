@@ -1,0 +1,19 @@
+---
+
+- name: Get current upstream line
+  shell: "cat /etc/nginx/conf.d/{{ web_hostname }}.upstreams.include || echo"
+  register: current_upstream_line
+
+- name: Get current upstream port
+  set_fact: current_upstream_port="{{ current_upstream_line.stdout | regex_replace('^.*:(.*);$', '\\1') }}"
+
+- name: 'Set blue port as string due to Ansible bug #15249'
+  set_fact: blue_port="{{ color_to_port['blue'] | string }}"
+
+- name: Set deployment color green
+  set_fact: deploy_color="green"
+  when: current_upstream_port == blue_port
+
+- name: Set deployment color blue
+  set_fact: deploy_color="blue"
+  when: not (current_upstream_port == blue_port)

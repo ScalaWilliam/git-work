@@ -2,8 +2,22 @@
 
 - hosts: all
   become: yes
+  vars:
+    colors: [ "blue", "green" ]
+    color_to_port:
+      blue: 12345
+      green: 12346
+    port_to_color:
+      12345: blue
+      12346: green
   roles:
+    - role: git-work-select-color
+    - role: git-work-instance
+      user: git-work
+      instance_port: "{{ color_to_port[deploy_color] }}"
+      instance_dir: "/home/git-work/{{ deploy_color }}"
+      service_name: "git-work-{{ deploy_color }}"
     - role: git-work-nginx
+      upstream_port: "{{ color_to_port[deploy_color] }}"
     - role: auto-ssl
       registration_email: hello@scalawilliam.com
-    - role: git-work-blue-green

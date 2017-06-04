@@ -16,7 +16,7 @@
       include "application"
       play.http.secret.key="QCY?tAnfk?aZ?iwrNwnxIlR6CTf:G3gf:90Latabg@5241AB`R5W:1uDFN];Ik@n"
       play.filters.hosts {
-        allowed = ["{{ web_hostname }}"]
+        allowed = ["{{ web_hostname }}", "127.0.0.1"]
       }
     dest: "/home/{{ user }}/production.conf"
   when: production_conf_file.stat.exists == False
@@ -65,3 +65,10 @@
     src=sudoers.j2
     dest=/etc/sudoers.d/{{ service_name }}
     mode=0755
+
+- name: Wait for service to kick in
+  wait_for: "port={{ instance_port }} delay=5"
+
+- name: ensure that the service is working
+  action: "uri url=http://127.0.0.1:{{ instance_port }} return_content=yes"
+  register: webpage
