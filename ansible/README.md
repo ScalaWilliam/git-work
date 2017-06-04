@@ -21,6 +21,10 @@ $ curl -i https://git.work/
 $ ansible all -i test-sg.git.work, -a 'systemctl status nginx.service'
 ```
 
+### Speed up
+
+`--tags deploy --skip-tags install`
+
 ## Deployment procedure
 
 > Work-in-progress

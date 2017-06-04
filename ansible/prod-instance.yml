@@ -12,12 +12,15 @@
       12346: green
   roles:
     - role: git-work-select-color
+      tags: deploy
     - role: git-work-instance
       user: git-work
       instance_port: "{{ color_to_port[deploy_color] }}"
       instance_dir: "/home/git-work/{{ deploy_color }}"
       service_name: "git-work-{{ deploy_color }}"
+      tags: deploy
     - role: git-work-nginx
       upstream_port: "{{ color_to_port[deploy_color] }}"
+      tags: deploy
     - role: auto-ssl
       registration_email: hello@scalawilliam.com
