@@ -1,1 +1,2 @@
 local_repository: "/home/{{ user }}/repo"
+force_deploy: true

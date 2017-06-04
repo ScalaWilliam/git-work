@@ -50,7 +50,7 @@
     dest: "{{ instance_dir }}"
     remote_src: True
     extra_opts: ['--strip-components=1', '--show-stored-names']
-  when: (check_git_work.stat.exists == False) or (force_deploy is defined)
+  when: (check_git_work.stat.exists == False) or (force_deploy == True)
   register: extracted
 
 - name: restart and enable the service
