@@ -7,11 +7,6 @@
     name: apt-transport-https
     state: present
 
-- name: ensure git installed
-  package:
-    name: git
-    state: present
-
 
 ## JDK 8
 - name: zulu apt key
