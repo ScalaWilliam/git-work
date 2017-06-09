@@ -30,5 +30,6 @@ lazy val documentation = project
   .settings(
     managedResources in Compile ++= {
       (baseDirectory.value * "*.md").get
-    }
+    },
+    managedResources in Compile += baseDirectory.value / "flow.dot"
   )

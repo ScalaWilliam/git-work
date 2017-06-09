@@ -31,12 +31,16 @@ class Main @Inject()(contentPath: ContentPath)(implicit executionContext: Execut
     val introHtml = renderer.render(document)
 
     doc.select("#intro").html(introHtml)
-
-//    doc.select("#wut").html(RenderGraphviz.dotToSvg("""graph g {a--b}""".stripMargin, 300))
-//    doc
-//      .select("#wut")
-//      .html(RenderGraphviz.dotToSvg(doc.select("script[type='text/vnd.graphviz']").first().html(),
-//                                    300))
+    doc
+      .select("#flow")
+      .first()
+      .appendElement("script")
+      .attr("type", "text/vnd.graphviz")
+      .attr("data", {
+        val src = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/flow.dot"))
+        try src.mkString
+        finally src.close()
+      })
 
     Ok(Html(doc.outerHtml()))
   }

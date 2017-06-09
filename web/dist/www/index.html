@@ -113,26 +113,6 @@
     </main>
 
     <aside id="flow">
-        <script type="text/vnd.graphviz">
-                graph {
-    { rank=same; white}
-    { rank=same; cyan; yellow; pink}
-    { rank=same; red; green; blue}
-    { rank=same; black}
-
-    white -- cyan -- blue
-    white -- yellow -- green
-    white -- pink -- red
-
-    cyan -- green -- black
-    yellow -- red -- black
-    pink -- blue -- black
-}
-
-
-
-        </script>
-
     </aside>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.8.0/viz-lite.js"
@@ -142,7 +122,7 @@
     <script type="text/javascript">
         var flw = document.querySelector("#flow");
         var viz = flw.querySelector("script");
-        var dot = viz.innerText;
+        var dot = viz.getAttribute("data");
         var image = Viz(dot, {format: "svg"});
         flw.innerHTML = image;
     </script>
@@ -169,7 +149,7 @@
                 <div class="mc-field-group">
                     <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
                     </label>
-                    <input type="email" autofocus value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                 </div>
                 <div class="mc-field-group">
                     <label for="mce-MMERGE2">Why are you interested? <span class="asterisk">*</span>
