@@ -14,5 +14,17 @@ lazy val web = Project(
     libraryDependencies += guice,
     libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.0-RC1",
     buildInfoPackage := "gw",
-    buildInfoOptions += BuildInfoOption.ToJson
+    buildInfoOptions += BuildInfoOption.ToJson,
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    libraryDependencies += "org.jsoup" % "jsoup" % "1.10.2",
+    // https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark-all
+    libraryDependencies += "com.vladsch.flexmark" % "flexmark-all" % "0.19.6"
+  )
+  .dependsOn(documentation)
+
+lazy val documentation = project
+  .settings(
+    managedResources in Compile ++= {
+      (baseDirectory.value * "*.md").get
+    }
   )
