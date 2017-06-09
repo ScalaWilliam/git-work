@@ -12,7 +12,7 @@ lazy val web = Project(
     publishArtifact in (Compile, packageDoc) := false,
     resolvers += "Akka Snapshot Repository" at "http://repo.akka.io/snapshots/",
     libraryDependencies += guice,
-    libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.0-RC1",
+    libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.0-RC2",
     buildInfoPackage := "gw",
     buildInfoOptions += BuildInfoOption.ToJson,
     // https://mvnrepository.com/artifact/org.jsoup/jsoup
