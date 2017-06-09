@@ -32,6 +32,12 @@ class Main @Inject()(contentPath: ContentPath)(implicit executionContext: Execut
 
     doc.select("#intro").html(introHtml)
 
+    doc.select("#wut").html(RenderGraphviz.dotToSvg("""graph g {a--b}""".stripMargin, 300))
+    doc
+      .select("#wut")
+      .html(RenderGraphviz.dotToSvg(doc.select("script[type='text/vnd.graphviz']").first().html(),
+                                    300))
+
     Ok(Html(doc.outerHtml()))
   }
 
