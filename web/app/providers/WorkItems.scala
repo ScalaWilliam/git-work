@@ -14,6 +14,4 @@ class WorkItems @Inject()()(implicit executionContext: ExecutionContext) {
 
   val data = Agent(WorkItem.sampleItems)
 
-  println(example.builddoc._example_flow_dot)
-
 }
