@@ -7,6 +7,7 @@ import org.jsoup.nodes.Element
   */
 object WorkItem {
   val deficiency = WorkItem(
+    id = "1704-deficiencies",
     title = "Improve the Tutorial: Identify deficiencies",
     price = "$15.00 USD",
     skill = "Technical writing",
@@ -14,17 +15,18 @@ object WorkItem {
   )
 
   val proposal = WorkItem(
+    id = "1705-homepage-proposal",
     title = "Proposal for homepage?",
     price = "$15.00 USD",
     skill = "UX / User Experience",
     url = "https://github.com/ScalaWilliam/ActionFPS/issues/362"
   )
 
-  val sampleItems = List(deficiency, proposal)
+  val sampleItems = Set(deficiency, proposal)
 
 }
 
-case class WorkItem(url: String, title: String, price: String, skill: String) {
+case class WorkItem(id: String, url: String, title: String, price: String, skill: String) {
 
   def renderTo(element: Element): Unit = {
     element.select(".title").first().text(title)

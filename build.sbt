@@ -25,7 +25,8 @@ lazy val web = Project(
     libraryDependencies += "com.github.ScalaWilliam" % "dot-to-svg-jvm" % "0.2.0",
     libraryDependencies += "net.sourceforge.plantuml" % "plantuml" % "8059",
     // https://mvnrepository.com/artifact/org.jsoup/jsoup
-    libraryDependencies += "org.jsoup" % "jsoup" % "1.10.2"
+    libraryDependencies += "org.jsoup" % "jsoup" % "1.10.2",
+    libraryDependencies += "com.typesafe.akka" %% "akka-agent" % "2.5.2"
   )
   .dependsOn(documentation)
 

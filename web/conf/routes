@@ -1,4 +1,4 @@
 GET        /                controllers.Main.index
 GET        /version/        @controllers.VersionController.version
-
+GET /work/:id/ @controllers.Main.workItem(id: String)
 GET /wut controllers.Main.wut
