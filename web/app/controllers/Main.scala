@@ -42,6 +42,18 @@ class Main @Inject()(contentPath: ContentPath)(implicit executionContext: Execut
         finally src.close()
       })
 
+    val figures = doc.select("main > figure")
+
+    val firstFigure = figures.first()
+
+    WorkItem.sampleItems.foreach { workItem =>
+      val cloned = firstFigure.clone()
+      workItem.renderTo(cloned)
+      firstFigure.before(cloned)
+    }
+
+    figures.remove()
+
     Ok(Html(doc.outerHtml()))
   }
 
