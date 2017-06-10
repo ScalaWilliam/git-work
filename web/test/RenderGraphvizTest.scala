@@ -3,7 +3,7 @@ import java.time.LocalDateTime
 import com.scalawilliam.dot.DotToSvg
 import org.scalatest.{FreeSpec, Ignore}
 
-//@Ignore
+@Ignore
 class RenderGraphvizTest extends FreeSpec {
 
   private val dot =
