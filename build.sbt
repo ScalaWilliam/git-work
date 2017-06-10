@@ -22,7 +22,8 @@ lazy val web = Project(
     // https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark-all
     libraryDependencies += "com.vladsch.flexmark" % "flexmark-all" % "0.19.6",
     resolvers += "jitpack" at "https://jitpack.io",
-    libraryDependencies += "com.github.ScalaWilliam" % "dot-to-svg-jvm" % "0.2.0"
+    libraryDependencies += "com.github.ScalaWilliam" % "dot-to-svg-jvm" % "0.2.0",
+    libraryDependencies += "net.sourceforge.plantuml" % "plantuml" % "8059"
   )
   .dependsOn(documentation)
 

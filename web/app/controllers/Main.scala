@@ -45,4 +45,8 @@ class Main @Inject()(contentPath: ContentPath)(implicit executionContext: Execut
     Ok(Html(doc.outerHtml()))
   }
 
+  def wut = Action {
+    Ok(PlantUMLToSvg.apply("XYZ")).as("image/svg+xml")
+  }
+
 }
