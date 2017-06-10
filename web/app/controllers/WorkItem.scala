@@ -23,6 +23,13 @@ object WorkItem {
   )
 
   val sampleItems = Set(deficiency, proposal)
+  import play.api.data._
+  import play.api.data.Forms._
+
+  implicit val form: Form[WorkItem] = Form(
+    mapping("id" -> text, "url" -> text, "title" -> text, "price" -> text, "skill" -> text)(
+      WorkItem.apply)(WorkItem.unapply)
+  )
 
 }
 

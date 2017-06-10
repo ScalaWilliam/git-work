@@ -71,4 +71,9 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     Ok(PlantUMLToSvg.apply("XYZ")).as("image/svg+xml")
   }
 
+  def postWorkItem = Action.apply(parse.form(WorkItem.form)) { implicit req =>
+    workItems.data.send(_ + req.body)
+    SeeOther(routes.Main.workItem(req.body.id).absoluteURL())
+  }
+
 }
