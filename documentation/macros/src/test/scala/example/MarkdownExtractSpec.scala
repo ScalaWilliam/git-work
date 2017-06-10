@@ -21,7 +21,7 @@ class MarkdownExtractSpec extends FreeSpec {
   }
 
   "It extracts first title correctly" in {
-    SectionedMarkdown.forNode(node)(0)._1.getAnchorRefText shouldBe "title"
+    SectionedMarkdown.forNode(node)(0)._1.getAnchorRefText shouldBe "Title"
   }
 
   "It re-renders the section" in {
