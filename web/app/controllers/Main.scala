@@ -1,9 +1,7 @@
 package controllers
 
-import java.io.InputStreamReader
 import javax.inject.Inject
 
-import example.SolutionHtml
 import lib.ContentPath
 import org.jsoup.Jsoup
 import play.api.http.FileMimeTypes
@@ -22,7 +20,7 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     val doc = Jsoup.parse(contentPath.contentPath.resolve("index.html").toFile, "UTF-8")
     doc
       .select("#intro")
-      .html(s"${example.ProblemHtml.problemHtml}<hr>${SolutionHtml.solutionHtml}")
+      .html(s"${ProblemHtml.problemHtml}<hr>${SolutionHtml.solutionHtml}")
     doc
       .select("#flow")
       .first()
