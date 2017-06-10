@@ -34,14 +34,17 @@ lazy val documentation = project
   .settings(metaMacroSettings)
   .dependsOn(documentationMacros)
   .settings(
+    // https://stackoverflow.com/questions/17134244/reading-resources-from-a-macro-in-an-sbt-project
     unmanagedClasspath in Compile ++= (unmanagedResources in Compile).value
+    // this is interesting too: https://stackoverflow.com/a/21516954/2789308
   )
 
 lazy val documentationMacros = project
   .in(file("documentation/macros"))
   .settings(metaMacroSettings)
   .settings(
-    libraryDependencies += "org.scalameta" %% "scalameta" % "1.8.0"
+    libraryDependencies += "org.scalameta" %% "scalameta" % "1.8.0",
+    libraryDependencies += "com.vladsch.flexmark" % "flexmark-all" % "0.19.6"
   )
 
 lazy val metaMacroSettings: Seq[Def.Setting[_]] = Seq(

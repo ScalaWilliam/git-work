@@ -1,6 +1,10 @@
 package example
 
+import java.io.InputStreamReader
 import java.nio.file.{Files, Paths}
+
+import com.vladsch.flexmark.parser.Parser
+import com.vladsch.flexmark.util.options.MutableDataSet
 
 import scala.collection.immutable.Seq
 import scala.meta._
@@ -38,7 +42,29 @@ object DocMacroImpl {
     val ress = rs.map { r =>
       val valName = r.resourcePath.replaceAll("[^A-Za-z]", "_")
       val literal = r.resourcePath
-      q"val ${Pat.Var.Term(Term.Name(valName))} = ${Lit.String(literal)}"
+
+      val objectName = Term.Name(valName)
+      val resourceName = q"""val resourceName = ${Lit.String(literal)}"""
+      val headingsO = if ( literal.endsWith(".md") ) Option {
+        val headings = {
+          val parsed = {
+            val options = new MutableDataSet
+            val parser: Parser = Parser.builder(options).build
+            parser.parseReader(new InputStreamReader(getClass.getResourceAsStream(r.resourcePath)))
+          }
+          val sections = SectionedMarkdown.forNode(parsed)
+
+          sections.map { case s @ (h, _) =>
+            val md = SectionedMarkdown.renderSection(s)
+            val sectionTerm = Pat.Var.Term(Term.Name(h.getAnchorRefText.replaceAll("[^A-Za-z]","")))
+            q"""val $sectionTerm = ${Lit.String(md)}"""
+          }
+
+        }
+        q"""object Headings { ..$headings }"""
+      } else None
+
+      q"object $objectName { $resourceName; ..$headingsO }"
     }
     q"object $name { ..$ress }"
   }
