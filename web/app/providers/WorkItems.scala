@@ -1,7 +1,6 @@
 package providers
 
 import javax.inject._
-
 import akka.agent.Agent
 import controllers.WorkItem
 
@@ -14,5 +13,7 @@ import scala.concurrent.ExecutionContext
 class WorkItems @Inject()()(implicit executionContext: ExecutionContext) {
 
   val data = Agent(WorkItem.sampleItems)
+
+  println(example.builddoc._example_flow_dot)
 
 }

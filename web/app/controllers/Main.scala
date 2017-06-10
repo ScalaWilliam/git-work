@@ -28,7 +28,7 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     val parser = Parser.builder(options).build
     val renderer = HtmlRenderer.builder(options).build
     val document =
-      parser.parseReader(new InputStreamReader(getClass.getResourceAsStream("/intro.md")))
+      parser.parseReader(new InputStreamReader(getClass.getResourceAsStream("/example/intro.md")))
     val introHtml = renderer.render(document)
 
     doc.select("#intro").html(introHtml)
@@ -38,7 +38,7 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
       .appendElement("script")
       .attr("type", "text/vnd.graphviz")
       .attr("data", {
-        val src = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/flow.dot"))
+        val src = scala.io.Source.fromInputStream(getClass.getResourceAsStream(example.builddoc._example_flow_dot))
         try src.mkString
         finally src.close()
       })
