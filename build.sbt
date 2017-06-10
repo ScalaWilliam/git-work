@@ -21,8 +21,8 @@ lazy val web = Project(
     libraryDependencies += "org.jsoup" % "jsoup" % "1.10.2",
     // https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark-all
     libraryDependencies += "com.vladsch.flexmark" % "flexmark-all" % "0.19.6",
-    // https://mvnrepository.com/artifact/guru.nidi/graphviz-java
-    libraryDependencies += "guru.nidi" % "graphviz-java" % "0.1.6"
+    resolvers += "jitpack" at "https://jitpack.io",
+    libraryDependencies += "com.github.ScalaWilliam" % "dot-to-svg-jvm" % "0.2.0"
   )
   .dependsOn(documentation)
 

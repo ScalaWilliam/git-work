@@ -1,10 +1,12 @@
+import java.time.LocalDateTime
+
+import com.scalawilliam.dot.DotToSvg
 import org.scalatest.{FreeSpec, Ignore}
-import org.scalatest.Matchers._
 
 @Ignore
 class RenderGraphvizTest extends FreeSpec {
 
-  val dot =
+  private val dot =
     """
       |       graph {
       |    { rank=same; white}
@@ -21,13 +23,13 @@ class RenderGraphvizTest extends FreeSpec {
       |    pink -- blue -- black
       |}
       |
-      |
     """.stripMargin
+
   "it works" in {
+    val renderer = DotToSvg.fromNewScriptEngine()
     Iterator.from(0).take(500).foreach { i =>
-      println(s"Doing ${i}...")
-      val r = controllers.RenderGraphviz.dotToSvg(dot, 300)
-      println(s"${r}")
+      println(s"Doing ${i}... ${LocalDateTime.now()}")
+      renderer.renderDot(dot)
     }
   }
 }
