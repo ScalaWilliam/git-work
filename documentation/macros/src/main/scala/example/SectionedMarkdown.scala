@@ -37,4 +37,12 @@ object SectionedMarkdown {
 
     Formatter.builder(mds).build().render(doc)
   }
+
+  def sectionToDoc(section: (Heading, List[Node])): Document = {
+    val mds = new MutableDataSet()
+    val doc = new Document(mds, BasedSequence.NULL)
+    doc.appendChild(section._1)
+    section._2.foreach(doc.appendChild)
+    doc
+  }
 }

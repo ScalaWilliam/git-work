@@ -8,7 +8,6 @@ import com.vladsch.flexmark.util.options.MutableDataSet
   * Created by william on 11/6/17.
   */
 object SolutionHtml {
-
   val solutionHtml = {
     val options = new MutableDataSet
 

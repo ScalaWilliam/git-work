@@ -2,19 +2,17 @@ package controllers
 
 import com.vladsch.flexmark.html.HtmlRenderer
 import com.vladsch.flexmark.parser.Parser
-import com.vladsch.flexmark.util.options.MutableDataSet
+import example.MarkdownImpl.MarkdownDocHeading
 
 /**
   * Created by william on 11/6/17.
   */
 object ProblemHtml {
+  import example.Implicits._
   val problemHtml = {
-    val options = new MutableDataSet
-
-    val parser = Parser.builder(options).build
-    val renderer = HtmlRenderer.builder(options).build
-    val document =
-      parser.parse(example.builddoc._example_intro_md.Headings.Problem)
-    renderer.render(document)
+    implicit val parser = Parser.builder().build
+    val renderer = HtmlRenderer.builder().build
+    val heading: MarkdownDocHeading = example.Documents.Intro.Problem
+    renderer.render(heading.getDocument)
   }
 }
