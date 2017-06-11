@@ -1,0 +1,12 @@
+server {
+  listen 80;
+  include "/etc/nginx/conf.d/www.{{ naked_hostname }}.https.include";
+  server_name www.{{ naked_hostname }};
+  return 302 https://{{ naked_hostname }}$request_uri;
+}
+
+server {
+  listen 80;
+  server_name {{ naked_hostname }};
+  return 302 https://{{ naked_hostname }}$request_uri;
+}

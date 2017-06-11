@@ -10,6 +10,8 @@
     port_to_color:
       12345: blue
       12346: green
+    web_hostname: "{{ naked_hostname }}"
+    http: false
   roles:
     - role: git-work-select-color
       tags: deploy
@@ -22,5 +24,13 @@
     - role: git-work-nginx
       upstream_port: "{{ color_to_port[deploy_color] }}"
       tags: deploy
+    - role: redirect-https-www
+      tags: redirect
+    - role: auto-ssl
+      web_hostname: "www.{{ naked_hostname }}"
+      registration_email: hello@scalawilliam.com
+      tags: ssl
     - role: auto-ssl
       registration_email: hello@scalawilliam.com
+      web_hostname: "{{ naked_hostname }}"
+      tags: ssl

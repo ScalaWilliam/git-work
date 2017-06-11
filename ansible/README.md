@@ -16,9 +16,9 @@ $ ssh vagw
 Using Ansible:
 
 ```
-$ ansible-playbook -i git.work, --extra-vars "web_hostname=git.work" prod-instance.yml
-$ curl -i https://git.work/
-$ ansible all -i test-sg.git.work, -a 'systemctl status nginx.service'
+$ ansible-playbook -i git.work, --extra-vars "naked_hostname=git.work" prod-instance.yml
+$ curl -i https://www.git.work/
+$ ansible all -i git.work, -a 'systemctl status nginx.service'
 ```
 
 ### Speed up
@@ -47,3 +47,13 @@ $ ansible all -i test-sg.git.work, -a 'systemctl status nginx.service'
         2. Determine the current instance directory
         3. rsync the content from the repo to the current instance directory
         4. Optionally, send a jmx signal to the current instance
+
+# Choice of www vs naked domain (git.work)
+
+I chose to use a naked domain. Why?
+
+- It reads better for developers! Adding extra www is not aesthetic
+   although it would be for many other sites. For some I use naked for some I don't.
+- It doesn't intend to hyper-scale, so no need for CNAMEs etc.
+- It's non-critical, so again no need for CNAMEs etc.
+
