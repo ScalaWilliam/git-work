@@ -21,6 +21,13 @@ $ curl -i https://www.git.work/
 $ ansible all -i git.work, -a 'systemctl status nginx.service'
 ```
 
+# Deployment
+Inside screen, with git-watch:
+
+```
+git-work $ git-watch -i -- ./ansible/prod-deploy.sh
+```
+
 ### Speed up
 
 `--tags deploy --skip-tags install`
