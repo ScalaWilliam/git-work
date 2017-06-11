@@ -1,6 +1,7 @@
 package controllers
 
 import org.jsoup.nodes.Element
+import play.api.libs.json.{Json, OFormat}
 
 /**
   * Created by william on 10/6/17.
@@ -31,6 +32,7 @@ object WorkItem {
       WorkItem.apply)(WorkItem.unapply)
   )
 
+  implicit val fmt: OFormat[WorkItem] = Json.format[WorkItem]
 }
 
 case class WorkItem(id: String, url: String, title: String, price: String, skill: String) {

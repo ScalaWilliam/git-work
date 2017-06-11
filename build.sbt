@@ -9,6 +9,7 @@ lazy val web = Project(
 ).enablePlugins(PlayScala)
   .enablePlugins(WebBuildInfo)
   .settings(
+    libraryDependencies += "com.lightbend.akka" %% "akka-stream-alpakka-file" % "0.9",
     name := "git-work",
     sources in (Compile, doc) := Seq.empty,
     publishArtifact in (Compile, packageDoc) := false,
@@ -26,7 +27,8 @@ lazy val web = Project(
     libraryDependencies += "net.sourceforge.plantuml" % "plantuml" % "8059",
     // https://mvnrepository.com/artifact/org.jsoup/jsoup
     libraryDependencies += "org.jsoup" % "jsoup" % "1.10.2",
-    libraryDependencies += "com.typesafe.akka" %% "akka-agent" % "2.5.2"
+    libraryDependencies += "com.typesafe.akka" %% "akka-agent" % "2.5.2",
+    libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.0-RC2"
   )
   .dependsOn(documentation)
 
