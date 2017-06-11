@@ -58,6 +58,8 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
 
     figures.remove()
 
+    doc.select("#sign-in").html(views.html.signin.apply.body)
+
     Ok(Html(doc.outerHtml()))
   }
 
@@ -78,4 +80,7 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     SeeOther(routes.Main.workItem(req.body.id).absoluteURL())
   }
 
+  def callback = Action { req =>
+    Ok(s"${req}")
+  }
 }
