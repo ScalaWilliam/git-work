@@ -2,6 +2,9 @@ package controllers
 
 import javax.inject.Inject
 
+import com.vladsch.flexmark.html.HtmlRenderer
+import com.vladsch.flexmark.parser.Parser
+import example.Documents
 import lib.ContentPath
 import org.jsoup.Jsoup
 import play.api.http.FileMimeTypes
@@ -14,13 +17,19 @@ import scala.concurrent.ExecutionContext
 class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     implicit executionContext: ExecutionContext,
     fileMimeTypes: FileMimeTypes)
-    extends InjectedController {
+    extends InjectedController { me =>
 
   def index = Action { implicit r =>
     val doc = Jsoup.parse(contentPath.contentPath.resolve("index.html").toFile, "UTF-8")
+
+    implicit val parser = Parser.builder().build
+    val renderer = HtmlRenderer.builder().build
+
+    import example.Implicits._
     doc
       .select("#intro")
-      .html(s"${ProblemHtml.problemHtml}<hr>${SolutionHtml.solutionHtml}")
+      .html(s"${renderer.render(Documents.Intro.Problem.getDocument)}<hr>${renderer.render(
+        Documents.Intro.Solution.getDocument)}")
     doc
       .select("#flow")
       .first()
@@ -28,8 +37,9 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
       .attr("type", "text/vnd.graphviz")
       .attr(
         "data", {
-          val src = scala.io.Source.fromInputStream(
-            getClass.getResourceAsStream(example.builddoc._example_flow_dot.resourceName))
+          val src = scala.io.Source
+            .fromInputStream(
+              me.getClass.getResourceAsStream(example.Documents.FlowDot.resourceName))
           try src.mkString
           finally src.close()
         }
@@ -47,6 +57,8 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     }
 
     figures.remove()
+
+    doc.select("#sign-in").html(views.html.signin.apply.body)
 
     Ok(Html(doc.outerHtml()))
   }
@@ -68,4 +80,7 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     SeeOther(routes.Main.workItem(req.body.id).absoluteURL())
   }
 
+  def callback = Action { req =>
+    Ok(s"${req}")
+  }
 }
