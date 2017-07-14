@@ -1,11 +1,12 @@
 package controllers
 
+import java.net.URL
 import javax.inject.Inject
 
 import com.vladsch.flexmark.html.HtmlRenderer
 import com.vladsch.flexmark.parser.Parser
 import example.Documents
-import lib.ContentPath
+import lib.{ContentPath, MicrodataParse}
 import org.jsoup.Jsoup
 import play.api.http.FileMimeTypes
 import play.api.mvc.InjectedController
@@ -35,7 +36,9 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
 
     val firstFigure = figures.first()
 
-    workItems.data.get.foreach { workItem =>
+    val workDoc = Jsoup.parse(new URL("http://work.scalawilliam.com/"), 1000)
+    val workItems = MicrodataParse.parseItems(workDoc)
+    workItems.foreach { workItem =>
       val cloned = firstFigure.clone()
       workItem.renderTo(cloned)
       cloned.select(".title").attr("href", workItem.url)
