@@ -2,10 +2,14 @@ package example
 
 object Documents {
 
-  @markdown_headings("/example/intro.md")
-  object Intro
+  object Intro {
+    val resourceName = "/example/intro.md"
+    val Solution = example.MarkdownImpl.MarkdownDocHeading(resourceName, "Solution")
+    val Problem = example.MarkdownImpl.MarkdownDocHeading(resourceName, "Problem")
+  }
 
-  @resource("/example/flow.dot")
-  object FlowDot
+  object FlowDot {
+    val resourceName = "/example/flow.dot"
+  }
 
 }

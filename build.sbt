@@ -28,33 +28,4 @@ lazy val web = Project(
   .dependsOn(documentation)
 
 lazy val documentation = project
-  .settings(metaMacroSettings)
-  .dependsOn(documentationMacros)
-  .settings(
-    // https://stackoverflow.com/questions/17134244/reading-resources-from-a-macro-in-an-sbt-project
-    unmanagedClasspath in Compile ++= (unmanagedResources in Compile).value
-    // this is interesting too: https://stackoverflow.com/a/21516954/2789308
-  )
-
-lazy val documentationMacros = project
-  .in(file("documentation/macros"))
-  .settings(metaMacroSettings)
-  .settings(
-    libraryDependencies += "org.scalameta" %% "scalameta" % "1.8.0",
-    libraryDependencies += "com.vladsch.flexmark" % "flexmark-all" % "0.19.6"
-  )
-
-lazy val metaMacroSettings: Seq[Def.Setting[_]] = Seq(
-  // New-style macro annotations are under active development.  As a result, in
-  // this build we'll be referring to snapshot versions of both scala.meta and
-  // macro paradise.
-  resolvers += Resolver.sonatypeRepo("releases"),
-  resolvers += Resolver.bintrayRepo("scalameta", "maven"),
-  // A dependency on macro paradise 3.x is required to both write and expand
-  // new-style macros.  This is similar to how it works for old-style macro
-  // annotations and a dependency on macro paradise 2.x.
-  addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-M9" cross CrossVersion.full),
-  scalacOptions += "-Xplugin-require:macroparadise",
-  // temporary workaround for https://github.com/scalameta/paradise/issues/10
-  scalacOptions in (Compile, console) := Seq() // macroparadise plugin doesn't work in repl yet.
-)
+  .settings(libraryDependencies += "com.vladsch.flexmark" % "flexmark-all" % "0.22.4")
