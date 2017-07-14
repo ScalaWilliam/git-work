@@ -8,8 +8,4 @@ object Documents {
     val Problem = example.MarkdownImpl.MarkdownDocHeading(resourceName, "Problem")
   }
 
-  object FlowDot {
-    val resourceName = "/example/flow.dot"
-  }
-
 }

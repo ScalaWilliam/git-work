@@ -30,20 +30,6 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
       .select("#intro")
       .html(s"${renderer.render(Documents.Intro.Problem.getDocument)}<hr>${renderer.render(
         Documents.Intro.Solution.getDocument)}")
-    doc
-      .select("#flow")
-      .first()
-      .appendElement("script")
-      .attr("type", "text/vnd.graphviz")
-      .attr(
-        "data", {
-          val src = scala.io.Source
-            .fromInputStream(
-              me.getClass.getResourceAsStream(example.Documents.FlowDot.resourceName))
-          try src.mkString
-          finally src.close()
-        }
-      )
 
     val figures = doc.select("main > figure")
 
