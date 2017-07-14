@@ -52,35 +52,13 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     workItems.data.get.foreach { workItem =>
       val cloned = firstFigure.clone()
       workItem.renderTo(cloned)
-      cloned.select(".title").attr("href", routes.Main.workItem(workItem.id).absoluteURL())
+      cloned.select(".title").attr("href", workItem.url)
       firstFigure.before(cloned)
     }
 
     figures.remove()
 
-    doc.select("#sign-in").html(views.html.signin.apply.body)
-
     Ok(Html(doc.outerHtml()))
   }
 
-  def workItem(id: String) = Action {
-    workItems.data.get().find(_.id == id) match {
-      case None => NotFound("Item not found.")
-      case Some(workItem) =>
-        Ok(s"${workItem}")
-    }
-  }
-
-  def wut = Action {
-    Ok(PlantUMLToSvg.apply("XYZ")).as("image/svg+xml")
-  }
-
-  def postWorkItem = Action.apply(parse.form(WorkItem.form)) { implicit req =>
-    workItems.publish(req.body)
-    SeeOther(routes.Main.workItem(req.body.id).absoluteURL())
-  }
-
-  def callback = Action { req =>
-    Ok(s"${req}")
-  }
 }
