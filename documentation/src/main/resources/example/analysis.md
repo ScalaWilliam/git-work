@@ -1,13 +1,5 @@
 # Analysis
 
-<!-- toc -->
-
-- [Key Actors](#key-actors)
-- [Related services](#related-services)
-- [User stories](#user-stories)
-
-<!-- tocstop -->
-
 ## Key Actors
 
 * **Git Work Man**: the person behind this project.

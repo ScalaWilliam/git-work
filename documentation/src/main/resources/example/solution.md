@@ -1,16 +1,6 @@
 
 # Solution
 
-<!-- toc -->
-
-- [The Client](#the-client)
-- [The Worker](#the-worker)
-- [User Workflow](#user-workflow)
-- [Disputes](#disputes)
-- [Interface](#interface)
-
-<!-- tocstop -->
-
 We reduce scope by narrowing down what the **Client** and the **Worker** are.
 
 We reduce scope by excluding unnecessary features.

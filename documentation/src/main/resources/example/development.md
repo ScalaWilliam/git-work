@@ -1,15 +1,5 @@
 # Development
 
-<!-- toc -->
-
-- [Running locally](#running-locally)
-- [Developing](#developing)
-- [Editing the content](#editing-the-content)
-- [Deployment](#deployment)
-- [Technical choices](#technical-choices)
-
-<!-- tocstop -->
-
 First, [Clone the repository](https://help.github.com/articles/cloning-a-repository/).
 
 ## Running locally
@@ -51,4 +41,3 @@ I chose this stack because of my experience and familiarity with it.
     because I'm experienced in it. See [ActionFPS](https://github.com/ScalaWilliam/ActionFPS) 
     and [Git Watch](http://git.watch/) which also use Event Source.
 - Build tool: [SBT](https://www.scalawilliam.com/essential-sbt/) default for Play and supports Docker.
-- TOC generation: [markdown-toc](https://github.com/jonschlinkert/markdown-toc) (run `make toc`).
