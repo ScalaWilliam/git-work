@@ -10,13 +10,15 @@ object WorkItem {
   val deficiency = WorkItem(
     title = "Improve the Tutorial: Identify deficiencies",
     price = "$15.00 USD",
-    url = "https://github.com/ActionFPS/ActionFPS-Book/issues/6"
+    url = "https://github.com/ActionFPS/ActionFPS-Book/issues/6",
+    skills = List("Technical writing")
   )
 
   val proposal = WorkItem(
     title = "Proposal for homepage?",
     price = "$15.00 USD",
-    url = "https://github.com/ScalaWilliam/ActionFPS/issues/362"
+    url = "https://github.com/ScalaWilliam/ActionFPS/issues/362",
+    skills = List("UX")
   )
 
   val sampleItems = Set(deficiency, proposal)
@@ -24,12 +26,13 @@ object WorkItem {
   implicit val fmt: OFormat[WorkItem] = Json.format[WorkItem]
 }
 
-case class WorkItem(url: String, title: String, price: String) {
+case class WorkItem(url: String, title: String, price: String, skills: List[String]) {
 
   def renderTo(element: Element): Unit = {
     element.select(".title").first().text(title)
     element.select(".url").first().text(url).attr("href", url)
     element.select(".price").first().text(price)
+    element.select(".skill").first().text(skills.mkString(", "))
   }
 
 }

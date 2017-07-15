@@ -16,7 +16,8 @@ class MicrodataParseTest extends FreeSpec {
     val workItem = WorkItem(
       url = "http://somewhere/",
       title = "Title",
-      price = "$20.00"
+      price = "$20.00",
+      skills = List("Scala", "HTML")
     )
 
     val items = MicrodataParse.parseItems(document)

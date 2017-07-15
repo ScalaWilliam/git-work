@@ -15,11 +15,13 @@ object MicrodataParse {
       name <- product.select(".p-name").asScala.headOption.map(_.text().trim)
       price <- product.select(".p-price").asScala.headOption.map(_.text().trim)
       url <- product.select("a.u-url, a[rel='bookmark']").asScala.headOption.map(_.attr("href"))
+      skills = product.select(".p-category").asScala.map(_.text().trim).toList
     } yield
       WorkItem(
         url = url,
         title = name,
-        price = price
+        price = price,
+        skills = skills
       )
 
   }
