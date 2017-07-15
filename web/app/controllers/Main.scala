@@ -3,8 +3,6 @@ package controllers
 import java.net.URL
 import javax.inject.Inject
 
-import com.vladsch.flexmark.html.HtmlRenderer
-import com.vladsch.flexmark.parser.Parser
 import example.Documents
 import lib.{ContentPath, MicrodataParse}
 import org.jsoup.Jsoup
@@ -22,15 +20,9 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
 
   def index = Action { implicit r =>
     val doc = Jsoup.parse(contentPath.contentPath.resolve("index.html").toFile, "UTF-8")
-
-    implicit val parser = Parser.builder().build
-    val renderer = HtmlRenderer.builder().build
-
-    import example.Implicits._
     doc
       .select("#intro")
-      .html(s"${renderer.render(Documents.Intro.Problem.getDocument)}<hr>${renderer.render(
-        Documents.Intro.Solution.getDocument)}")
+      .html(Documents.Intro.Problem.html + "<hr>" + Documents.Intro.Solution.html)
 
     val figures = doc.select("main > figure")
 
