@@ -5,6 +5,7 @@ import javax.inject.Inject
 
 import example.Documents
 import lib.{ContentPath, MicrodataParse}
+import org.apache.pdfbox.io.IOUtils
 import org.jsoup.Jsoup
 import play.api.http.FileMimeTypes
 import play.api.mvc.InjectedController
@@ -18,7 +19,13 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     fileMimeTypes: FileMimeTypes)
     extends InjectedController { me =>
 
-  def index = Action { implicit r =>
+  def development = Action {
+    Ok(
+      Html(
+        new String(IOUtils.toByteArray(getClass.getResourceAsStream("/example/development.html")))))
+  }
+
+  def index = Action {
     val doc = Jsoup.parse(contentPath.contentPath.resolve("index.html").toFile, "UTF-8")
     doc
       .select("#intro")

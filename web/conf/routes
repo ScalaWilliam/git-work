@@ -1,2 +1,3 @@
-GET        /                controllers.Main.index
-GET        /version/        @controllers.VersionController.version
+GET        /                    controllers.Main.index
+GET        /version/            @controllers.VersionController.version
+GET        /development/        @controllers.Main.development

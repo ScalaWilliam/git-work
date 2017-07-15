@@ -4,7 +4,18 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Git Work Development</title>
-</head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto Slab', serif;
+            line-height:1.6;
+            cursor: default;
+            font-size:0.8em;
+        }
+
+        </style>
+        </head>
 <body>
 <h1>Git Work</h1>
 <main id="development">
@@ -15,8 +26,11 @@
     <section id="running-locally">
         <h2>Running locally</h2>
         <ol>
-            <li><a href="https://www.scalawilliam.com/essential-sbt/">Install SBT</a></li>
-            <li>Inside the Git clone of this project, run: <code>sbt run</code> or <code>make run</code>.</li>
+            <li>Install <a href="http://www.scala-sbt.org/0.13/docs/Setup.html">Install SBT</a> and
+                <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html">JDK 8</a>.
+                (reading: <a href="https://www.scalawilliam.com/essential-sbt/">Essential SBT</a>).
+            </li>
+            <li>In a command line in the Git Work directory, run <code>sbt web/run</code></li>
             <li>Go to <a href="http://localhost:9000">http://localhost:9000</a></li>
         </ol>
     </section>
@@ -44,7 +58,7 @@
     <section id="deployment">
 
         <p>We use <a href="https://git.watch">Git Watch</a> to deploy automatically to a bare metal server.
-            On push to GitHub we trigger the [push script](push). Bare gives us instant deployment and a filesystem.</p>
+            On push to GitHub we trigger the push script. Bare gives us instant deployment and a filesystem.</p>
 
         <p>This project is unlikely to need scaling except for the website which we can always put behind a CloudFront,
             Fastly
