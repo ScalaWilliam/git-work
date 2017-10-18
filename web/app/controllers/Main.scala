@@ -3,21 +3,22 @@ package controllers
 import java.net.URL
 import javax.inject.Inject
 
-import example.Documents
 import lib.{ContentPath, MicrodataParse}
 import org.apache.pdfbox.io.IOUtils
 import org.jsoup.Jsoup
 import play.api.http.FileMimeTypes
-import play.api.mvc.InjectedController
+import play.api.mvc.{AbstractController, ControllerComponents}
 import play.twirl.api.Html
 import providers.WorkItems
 
 import scala.concurrent.ExecutionContext
 
-class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
+class Main @Inject()(contentPath: ContentPath,
+                     workItems: WorkItems,
+                     controllerComponents: ControllerComponents)(
     implicit executionContext: ExecutionContext,
     fileMimeTypes: FileMimeTypes)
-    extends InjectedController { me =>
+    extends AbstractController(controllerComponents) { me =>
 
   def development = Action {
     Ok(
