@@ -29,7 +29,7 @@ class Main @Inject()(contentPath: ContentPath, workItems: WorkItems)(
     val doc = Jsoup.parse(contentPath.contentPath.resolve("index.html").toFile, "UTF-8")
     doc
       .select("#intro")
-      .html(Documents.Intro.Problem.html + "<hr>" + Documents.Intro.Solution.html)
+      .html("")
 
     val figures = doc.select("main > figure")
 
